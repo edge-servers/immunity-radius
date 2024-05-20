@@ -62,9 +62,9 @@ auto-generated and contents of these emails can be customized too.
 
 Here are some defined settings for doing that:
 
-    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_SUBJECT <openwisp_radius_batch_mail_subject>`
-    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_MESSAGE <openwisp_radius_batch_mail_message>`
-    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_SENDER <openwisp_radius_batch_mail_sender>`
+    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_SUBJECT <immunity_radius_batch_mail_subject>`
+    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_MESSAGE <immunity_radius_batch_mail_message>`
+    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_SENDER <immunity_radius_batch_mail_sender>`
 
 Using the admin interface
 -------------------------
@@ -74,7 +74,7 @@ Using the admin interface
 
 To generate users from the admin interface, go to
 ``Home > Batch user creation operations > Add``
-(URL: ``/admin/openwisp_radius/radiusbatch/add``),
+(URL: ``/admin/immunity_radius/radiusbatch/add``),
 set ``Strategy`` to ``Import from CSV``,
 choose the CSV file to upload and save.
 

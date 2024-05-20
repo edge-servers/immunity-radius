@@ -1,7 +1,7 @@
 include LICENSE
 include README.rst
 include CHANGES.rst
-recursive-include openwisp_radius *
+recursive-include immunity_radius *
 recursive-exclude * *.pyc
 recursive-exclude * *.swp
 recursive-exclude * __pycache__

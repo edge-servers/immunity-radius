@@ -1,5 +1,5 @@
-from openwisp_radius.management.commands.base import BatchAddMixin
-from openwisp_radius.management.commands.base.batch_add_users import (
+from immunity_radius.management.commands.base import BatchAddMixin
+from immunity_radius.management.commands.base.batch_add_users import (
     BaseBatchAddUsersCommand,
 )
 

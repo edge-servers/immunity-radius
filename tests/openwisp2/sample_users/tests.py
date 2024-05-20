@@ -1,12 +1,12 @@
-from openwisp_radius.tests.mixins import GetEditFormInlineMixin
-from openwisp_users.tests.test_admin import (
+from immunity_radius.tests.mixins import GetEditFormInlineMixin
+from immunity_users.tests.test_admin import (
     TestBasicUsersIntegration as BaseTestBasicUsersIntegration,
 )
-from openwisp_users.tests.test_admin import (
+from immunity_users.tests.test_admin import (
     TestMultitenantAdmin as BaseTestMultitenantAdmin,
 )
-from openwisp_users.tests.test_admin import TestUsersAdmin as BaseTestUsersAdmin
-from openwisp_users.tests.test_models import TestUsers as BaseTestUsers
+from immunity_users.tests.test_admin import TestUsersAdmin as BaseTestUsersAdmin
+from immunity_users.tests.test_models import TestUsers as BaseTestUsers
 
 additional_fields = [
     ('social_security_number', '123-45-6789'),

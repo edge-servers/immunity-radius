@@ -1,4 +1,4 @@
-from openwisp_radius.social.views import (
+from immunity_radius.social.views import (
     RedirectCaptivePageView as BaseRedirectCaptivePageView,
 )
 

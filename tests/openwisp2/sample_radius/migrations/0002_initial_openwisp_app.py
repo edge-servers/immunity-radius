@@ -15,21 +15,21 @@ import swapper
 from django.conf import settings
 from django.db import migrations, models
 
-import openwisp_radius.base.models
-import openwisp_radius.base.validators
-import openwisp_radius.utils
-import openwisp_users.mixins
-import openwisp_utils.base
-import openwisp_utils.utils
-from openwisp_radius.settings import CSV_URL_PATH, RADIUS_API_BASEURL
+import immunity_radius.base.models
+import immunity_radius.base.validators
+import immunity_radius.utils
+import immunity_users.mixins
+import immunity_utils.base
+import immunity_utils.utils
+from immunity_radius.settings import CSV_URL_PATH, RADIUS_API_BASEURL
 
 
 class Migration(migrations.Migration):
 
-    nas_model = swapper.get_model_name('openwisp_radius', 'Nas')
+    nas_model = swapper.get_model_name('immunity_radius', 'Nas')
     model_app_label = swapper.split(nas_model)[0]
     dependencies = [
-        swapper.dependency('openwisp_users', 'Organization'),
+        swapper.dependency('immunity_users', 'Organization'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         (model_app_label, '0001_initial_freeradius'),
     ]
@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
             preserve_default=False,
@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
                 db_column='delegatedipv6prefix',
                 max_length=44,
                 null=True,
-                validators=[openwisp_radius.base.validators.ipv6_network_validator],
+                validators=[immunity_radius.base.validators.ipv6_network_validator],
                 verbose_name='delegated IPv6 prefix',
             ),
         ),
@@ -102,7 +102,7 @@ class Migration(migrations.Migration):
                 db_column='framedipv6prefix',
                 max_length=44,
                 null=True,
-                validators=[openwisp_radius.base.validators.ipv6_network_validator],
+                validators=[immunity_radius.base.validators.ipv6_network_validator],
                 verbose_name='framed IPv6 prefix',
             ),
         ),
@@ -112,7 +112,7 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
             preserve_default=False,
@@ -133,7 +133,7 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
             preserve_default=False,
@@ -174,7 +174,7 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
             preserve_default=False,
@@ -190,7 +190,7 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
             preserve_default=False,
@@ -392,7 +392,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -411,7 +411,7 @@ class Migration(migrations.Migration):
                 'db_table': 'radiustoken',
                 'abstract': False,
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='RadiusGroup',
@@ -474,7 +474,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -484,7 +484,7 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'groups',
                 'abstract': False,
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='OrganizationRadiusSettings',
@@ -500,8 +500,8 @@ class Migration(migrations.Migration):
                 ),
                 (
                     'token',
-                    openwisp_utils.base.KeyField(
-                        default=openwisp_utils.utils.get_random_key,
+                    immunity_utils.base.KeyField(
+                        default=immunity_utils.utils.get_random_key,
                         help_text=None,
                         max_length=32,
                         validators=[
@@ -571,7 +571,7 @@ class Migration(migrations.Migration):
                     models.OneToOneField(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name='radius_settings',
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -589,7 +589,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_radius', 'RadiusGroup'),
+                to=swapper.get_model_name('immunity_radius', 'RadiusGroup'),
             ),
         ),
         migrations.AddField(
@@ -599,7 +599,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_radius', 'RadiusGroup'),
+                to=swapper.get_model_name('immunity_radius', 'RadiusGroup'),
             ),
         ),
         migrations.AddField(
@@ -609,7 +609,7 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_radius', 'RadiusGroup'),
+                to=swapper.get_model_name('immunity_radius', 'RadiusGroup'),
             ),
         ),
         migrations.AlterUniqueTogether(
@@ -678,7 +678,7 @@ class Migration(migrations.Migration):
                             base_url=urljoin(RADIUS_API_BASEURL, CSV_URL_PATH),
                             location=settings.PRIVATE_STORAGE_ROOT,
                         ),
-                        upload_to=openwisp_radius.base.models._get_csv_file_location,
+                        upload_to=immunity_radius.base.models._get_csv_file_location,
                         verbose_name='CSV',
                     ),
                 ),
@@ -714,7 +714,7 @@ class Migration(migrations.Migration):
                     'organization',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to=swapper.get_model_name('openwisp_users', 'Organization'),
+                        to=swapper.get_model_name('immunity_users', 'Organization'),
                         verbose_name='organization',
                     ),
                 ),
@@ -735,7 +735,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
                 'unique_together': {('name', 'organization')},
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='PhoneToken',
@@ -768,7 +768,7 @@ class Migration(migrations.Migration):
                 (
                     'valid_until',
                     models.DateTimeField(
-                        default=openwisp_radius.utils.get_sms_default_valid_until
+                        default=immunity_radius.utils.get_sms_default_valid_until
                     ),
                 ),
                 ('attempts', models.PositiveIntegerField(default=0)),
@@ -776,7 +776,7 @@ class Migration(migrations.Migration):
                 (
                     'token',
                     models.CharField(
-                        default=openwisp_radius.utils.generate_sms_token,
+                        default=immunity_radius.utils.generate_sms_token,
                         editable=False,
                         max_length=8,
                     ),

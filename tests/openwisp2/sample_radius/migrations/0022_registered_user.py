@@ -3,7 +3,7 @@
 import django.db.models.deletion
 from django.db import migrations, models
 
-from openwisp_radius.registration import REGISTRATION_METHOD_CHOICES
+from immunity_radius.registration import REGISTRATION_METHOD_CHOICES
 
 
 class Migration(migrations.Migration):

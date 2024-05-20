@@ -1,4 +1,4 @@
-from openwisp_radius.management.commands.base.delete_old_radacct import (
+from immunity_radius.management.commands.base.delete_old_radacct import (
     BaseDeleteOldRadacctCommand,
 )
 

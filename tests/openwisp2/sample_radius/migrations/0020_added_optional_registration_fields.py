@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 
-from openwisp_radius.base.models import _GET_OPTIONAL_FIELDS_HELP_TEXT
+from immunity_radius.base.models import _GET_OPTIONAL_FIELDS_HELP_TEXT
 
 
 class Migration(migrations.Migration):

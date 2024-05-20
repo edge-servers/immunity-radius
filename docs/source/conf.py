@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# openwisp-radius documentation build configuration file, created by
+# immunity-radius documentation build configuration file, created by
 # sphinx-quickstart on Tue Jun 27 11:13:40 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -20,7 +20,7 @@
 import os
 import sys
 
-from openwisp_radius import VERSION, get_version
+from immunity_radius import VERSION, get_version
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath('.'))))
 
@@ -34,7 +34,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath('.'))))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'openwisp.sphinx.theme']
+extensions = ['sphinx.ext.autodoc', 'immunity.sphinx.theme']
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
@@ -51,9 +51,9 @@ master_doc = 'index'
 # General information about the project.
 from datetime import date
 
-project = 'openwisp-radius'
-copyright = f'2017-{date.today().year} OpenWISP and individual contributors'
-author = 'OpenWISP contributors'
+project = 'immunity-radius'
+copyright = f'2017-{date.today().year} Immunity and individual contributors'
+author = 'Immunity contributors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -88,7 +88,7 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'openwisp-sphinx-theme'
+html_theme = 'immunity-sphinx-theme'
 html_favicon = 'assets/design/favicon.png'
 html_logo = 'assets/design/radius-logo-dark.svg'
 
@@ -104,7 +104,7 @@ html_logo = 'assets/design/radius-logo-dark.svg'
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'openwisp-radiusdoc'
+htmlhelp_basename = 'immunity-radiusdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -130,8 +130,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        'openwisp-radius.tex',
-        'openwisp-radius Documentation',
+        'immunity-radius.tex',
+        'immunity-radius Documentation',
         'Fiorella De Luca',
         'manual',
     ),
@@ -143,7 +143,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'openwisp-radius', 'openwisp-radius Documentation', [author], 1)
+    (master_doc, 'immunity-radius', 'immunity-radius Documentation', [author], 1)
 ]
 
 
@@ -155,10 +155,10 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        'openwisp-radius',
-        'openwisp-radius Documentation',
+        'immunity-radius',
+        'immunity-radius Documentation',
         author,
-        'openwisp-radius',
+        'immunity-radius',
         'One line description of project.',
         'Miscellaneous',
     ),

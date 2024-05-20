@@ -58,59 +58,59 @@ Features
 - Allowed to login via API with email or phone number
 - Allowed freeradius authorize with email or phone number
 - Allowed the usage of subnets in `OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-freeradius-allowed-hosts>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-freeradius-allowed-hosts>`_
 - Made the fields containing personal data of users which are exposed in the registration API
   configurable (allowed, mandatory, disabled) via the
   `OPENWISP_RADIUS_OPTIONAL_REGISTRATION_FIELDS setting or the admin interface
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-optional-registration-fields>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-optional-registration-fields>`_
 - Allow to disable registration API via the
   `OPENWISP_RADIUS_REGISTRATION_API_ENABLED setting
   or the admin interface
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-registration-api-enabled>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-registration-api-enabled>`_
 - Added `throttling of API requests
-  <https://openwisp-radius.readthedocs.io/en/latest/user/api.html#api-throttling>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/api.html#api-throttling>`_
 - Added `OPENWISP_RADIUS_API_BASEURL setting
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-api-baseurl>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-api-baseurl>`_
 - Add identity verification feature, configurable via the
   `OPENWISP_RADIUS_NEEDS_IDENTITY_VERIFICATION or via admin interface
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-needs-identity-verification>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-needs-identity-verification>`_
 - Added utilities for implementing
   `new registration and identity verification methods
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#adding-support-for-more-registration-verification-methods>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#adding-support-for-more-registration-verification-methods>`_
 - Added `captive portal mock views
-  <https://openwisp-radius.readthedocs.io/en/latest/developer/captive_portal_mock.html>`_
+  <https://immunity-radius.readthedocs.io/en/latest/developer/captive_portal_mock.html>`_
   to ease development and debugging
 - Add possibility to filter users by registration method in the admin interface
 - Added SAML registration method to implement `captive portal authentication
-  via Single Sign On (SSO) <https://openwisp-radius.readthedocs.io/en/latest/user/saml.html>`_
+  via Single Sign On (SSO) <https://immunity-radius.readthedocs.io/en/latest/user/saml.html>`_
 - Added management command and celery task to
   `delete unverified users
-  <https://openwisp-radius.readthedocs.io/en/latest/user/management_commands.html#delete-unverified-users>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/management_commands.html#delete-unverified-users>`_
 - Added translations of user facing API responses in Italian, German, Slovenian and Furlan
 - Added `Convert RADIUS accounting CALLED-STATION-ID feature
-  <https://openwisp-radius.readthedocs.io/en/latest/user/management_commands.html#convert-called-station-id>`_,
+  <https://immunity-radius.readthedocs.io/en/latest/user/management_commands.html#convert-called-station-id>`_,
   celery task and management command,
   with the possibility of triggering it on accounting creation
   (see `OPENWISP_RADIUS_CONVERT_CALLED_STATION_ON_CREATE
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-convert-called-station-on-create>`_)
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-convert-called-station-on-create>`_)
 - Added an `equivalent of the FreeRADIUS sqlcounter feature to the REST API
-  <https://openwisp-radius.readthedocs.io/en/latest/user/enforcing_limits.html#how-limits-are-enforced-counters>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/enforcing_limits.html#how-limits-are-enforced-counters>`_
 - Added emission of django signal to FreeRADIUS accounting view:
   `radius_accounting_success
-  <https://openwisp-radius.readthedocs.io/en/latest/developer/signals.html#radius-accounting-success>`_
+  <https://immunity-radius.readthedocs.io/en/latest/developer/signals.html#radius-accounting-success>`_
 - Added possibility to send email to the user an they start
   a new radius accounting session
 - Added organization level settings and related admin interface functionality
   to enable/disable SAML and social login:
 
   - `OPENWISP_RADIUS_SAML_REGISTRATION_ENABLED
-    <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-saml-registration-enabled>`_
+    <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-saml-registration-enabled>`_
   - `OPENWISP_RADIUS_SOCIAL_REGISTRATION_ENABLED
-    <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-social-registration-enabled>`_
+    <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-social-registration-enabled>`_
 
 - Added setting to avoid updating username from SAML:
   `OPENWISP_RADIUS_SAML_UPDATES_PRE_EXISTING_USERNAME
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-saml-updates-pre-existing-username>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-saml-updates-pre-existing-username>`_
 
 Changes
 ~~~~~~~
@@ -129,7 +129,7 @@ Backward incompatible changes
   they are unmaintained, any user needing these customizations is
   advised to implement them as a third party app
 - Improved REST API to change password:
-  inherited ``PasswordChangeView`` of openwisp-users to add support for
+  inherited ``PasswordChangeView`` of immunity-users to add support for
   the current-password field in password change view
 
 Dependencies
@@ -147,21 +147,21 @@ Other changes
 
 - Moved AccountingView to freeradius endpoints
 - Relaxed default values for the
-  `SMS token settings <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#sms-token-related-settings>`_
-- Switched to new navigation menu and new OpenWISP theme
+  `SMS token settings <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#sms-token-related-settings>`_
+- Switched to new navigation menu and new Immunity theme
 - Allowed users to sign up to multiple organizations
 - Update username when phone number is changed if username is equal to the phone number
 - Update stop time and termination to ``None`` if ``status_type`` is ``Interim-Update``
 - Send password reset emails using HTML theme:
-  leverage the new `openwisp-utils send_email function
-  <https://github.com/openwisp/openwisp-utils#openwisp-utils-admin-theme-email-send-email>`_
+  leverage the new `immunity-utils send_email function
+  <https://github.com/edge-servers/immunity-utils#immunity-utils-admin-theme-email-send-email>`_
   to send an HTML version
-  of the reset password email based on the configurable email HTML theme of OpenWISP
+  of the reset password email based on the configurable email HTML theme of Immunity
 - Save the user preferred language in obtain and validate token views
 - Added validation check to prevent invalid username in batch user creation
 - Allowed to set the
   `Password Reset URL setting
-  <https://openwisp-radius.readthedocs.io/en/latest/user/settings.html#openwisp-radius-password-reset-urls>`_
+  <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-password-reset-urls>`_
   via the admin interface
 - Added soft limits to celery tasks for background operations
 - Generalized the implementation of the fallback model fields which allow
@@ -170,8 +170,8 @@ Other changes
 Bugfixes
 ~~~~~~~~
 
-- Fixed login template of openwisp-admin-theme
-- Fixed swagger API docs collision with openwisp-users
+- Fixed login template of immunity-admin-theme
+- Fixed swagger API docs collision with immunity-users
 - Ensured each user can be member of a group only once
 - Radius check and reply should check for organization membership
 - ``ValidateAuthTokenView``: show ``phone_number`` as ``null`` if ``None``
@@ -192,7 +192,7 @@ Bugfixes
 - Delete any cached radius token key on phone number change
 - Fixed handling of interim-updates for closed sessions:
   added handling of "Interim-Updates" for RadiusAccounting sessions
-  that are closed by OpenWISP when user logs into another organization
+  that are closed by Immunity when user logs into another organization
 - Flag user as verified in batch user creation
 - Added validation which prevents the creation of duplicated
   check/reply attributes
@@ -203,9 +203,9 @@ Version 0.2.1 [2020-12-14]
 Changes
 ~~~~~~~
 
-- Increased openwisp-users and openwisp-utils versions to be
-  consistent with the `OpenWISP 2020-12 release
-  <https://github.com/openwisp/ansible-openwisp2/releases/tag/0.12.0>`_
+- Increased immunity-users and immunity-utils versions to be
+  consistent with the `Immunity 2020-12 release
+  <https://github.com/edge-servers/ansible-immunity2/releases/tag/0.12.0>`_
 - Increased dj-rest-auth to 2.1.2 and weasyprint to 52
 
 Version 0.2.0 [2020-12-11]

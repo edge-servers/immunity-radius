@@ -1,10 +1,10 @@
-from openwisp_radius.saml.views import (
+from immunity_radius.saml.views import (
     AssertionConsumerServiceView as BaseAssertionConsumerServiceView,
 )
-from openwisp_radius.saml.views import LoginView as BaseLoginView
-from openwisp_radius.saml.views import LogoutInitView as BaseLogoutInitView
-from openwisp_radius.saml.views import LogoutView as BaseLogoutView
-from openwisp_radius.saml.views import MetadataView as BaseMetadataView
+from immunity_radius.saml.views import LoginView as BaseLoginView
+from immunity_radius.saml.views import LogoutInitView as BaseLogoutInitView
+from immunity_radius.saml.views import LogoutView as BaseLogoutView
+from immunity_radius.saml.views import MetadataView as BaseMetadataView
 
 
 class AssertionConsumerServiceView(BaseAssertionConsumerServiceView):

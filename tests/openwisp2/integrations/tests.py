@@ -7,9 +7,9 @@ from django.core.cache import cache
 from django.test import Client, TestCase
 from django.urls import reverse
 
-from openwisp_radius.utils import load_model
-from openwisp_users.tests.utils import TestOrganizationMixin
-from openwisp_utils.tests import capture_any_output
+from immunity_radius.utils import load_model
+from immunity_users.tests.utils import TestOrganizationMixin
+from immunity_utils.tests import capture_any_output
 
 RadiusAccounting = load_model('RadiusAccounting')
 RadiusToken = load_model('RadiusToken')
@@ -39,7 +39,7 @@ class TestIntegrations(TestOrganizationMixin, TestCase):
         return radius_token
 
     @capture_any_output()
-    @mock.patch('openwisp2.views.requests.post', mock_post_request)
+    @mock.patch('immunity2.views.requests.post', mock_post_request)
     def test_captive_portal_login_mock(self, *args, **kwargs):
         url = reverse('captive_portal_login_mock')
         radius_token, ra = (None, None)
@@ -64,7 +64,7 @@ class TestIntegrations(TestOrganizationMixin, TestCase):
         cache.delete(f'rt-{radius_token.user.username}')
 
     @capture_any_output()
-    @mock.patch('openwisp2.views.requests.post', mock_post_request)
+    @mock.patch('immunity2.views.requests.post', mock_post_request)
     def test_captive_portal_logout_mock(self, *args, **kwargs):
         url = reverse('captive_portal_logout_mock')
 

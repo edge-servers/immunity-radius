@@ -1,6 +1,6 @@
 from django.db import models
 
-from openwisp_radius.base.models import (
+from immunity_radius.base.models import (
     AbstractNas,
     AbstractOrganizationRadiusSettings,
     AbstractPhoneToken,

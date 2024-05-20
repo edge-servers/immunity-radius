@@ -1,1 +1,1 @@
-from openwisp_radius import admin  # noqa
+from immunity_radius import admin  # noqa

@@ -4,7 +4,7 @@ Available settings
 Admin related settings
 ======================
 
-These settings control details of the administration interface of openwisp-radius.
+These settings control details of the administration interface of immunity-radius.
 
 .. note::
 
@@ -87,7 +87,7 @@ from the user admin page, you can do so by setting this to ``True``.
 Model related settings
 ======================
 
-These settings control details of the openwisp-radius model classes.
+These settings control details of the immunity-radius model classes.
 
 ``OPENWISP_RADIUS_DEFAULT_SECRET_FORMAT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -143,7 +143,7 @@ the following to your project ``settings.py``:
         ('cisco', 'Cisco Router'),
     )
 
-.. _openwisp_radius_freeradius_allowed_hosts:
+.. _immunity_radius_freeradius_allowed_hosts:
 
 ``OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -154,7 +154,7 @@ List of host IP addresses or subnets allowed to consume the freeradius
 API endpoints (Authorize, Accounting and Postauth), i.e the value
 of this option should be the IP address of your freeradius
 instance. Example: If your freeradius instance is running on
-the same host machine as OpenWISP, the value should be ``127.0.0.1``.
+the same host machine as Immunity, the value should be ``127.0.0.1``.
 Similarly, if your freeradius instance is on a different host in
 the private network, the value should be the private IP of freeradius
 host like ``192.0.2.50``. If your freeradius is on a public network,
@@ -187,12 +187,12 @@ will return ``403``.
 
 **Default**: ``False```
 
-If set to ``True``, openwisp-radius will update the NAS with the
+If set to ``True``, immunity-radius will update the NAS with the
 user's current RADIUS attributes whenever the ``RadiusGroup`` of
 user is changed. This allow enforcing of rate limits on active
 RADIUS sessions without requiring users to re-authenticate. For
 more details, :ref:`read the dedicated section for configuring
-openwisp-radius and NAS for using CoA <change_of_authorization>`.
+immunity-radius and NAS for using CoA <change_of_authorization>`.
 
 This can be overridden for each organization separately
 via the organization radius settings section of the admin interface.
@@ -214,8 +214,8 @@ for RADIUS attribute mapping.
 
 .. note::
 
-    A `default dictionary <https://github.com/openwisp/openwisp-radius/blob/master/openwisp_radius/radclient/dictionary>`_
-    is shipped with openwisp-radius. Any dictionary added using this setting
+    A `default dictionary <https://github.com/edge-servers/immunity-radius/blob/master/immunity_radius/radclient/dictionary>`_
+    is shipped with immunity-radius. Any dictionary added using this setting
     will be used alongside the default dictionary.
 
 ``OPENWISP_RADIUS_MAX_CSV_FILE_SIZE``
@@ -243,7 +243,7 @@ This setting can be used to set the maximum size limit for firmware images, eg:
 +--------------+-------------------------------------------------------------------------------------+
 | **type**:    | ``str``                                                                             |
 +--------------+-------------------------------------------------------------------------------------+
-| **default**: |  ``openwisp_radius.private_storage.storage.private_file_system_storage``            |
+| **default**: |  ``immunity_radius.private_storage.storage.private_file_system_storage``            |
 +--------------+-------------------------------------------------------------------------------------+
 
 Dotted path to an instance of any one of the storage classes in
@@ -253,7 +253,7 @@ This instance is used for storing csv files of batch imports of users.
 By default, an instance of ``private_storage.storage.files.PrivateFileSystemStorage``
 is used.
 
-.. _openwisp_radius_called_station_ids:
+.. _immunity_radius_called_station_ids:
 
 ``OPENWISP_RADIUS_CALLED_STATION_IDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -283,7 +283,7 @@ It should contain configuration in following format:
                 }
             ],
             # List of CALLED STATION IDs that has to be converted,
-            # These look like: 00:27:22:F3:FA:F1:gw1.openwisp.org
+            # These look like: 00:27:22:F3:FA:F1:gw1.immunity.org
             'unconverted_ids': ['<called_station_id>'],
         }
     }
@@ -294,10 +294,10 @@ It should contain configuration in following format:
 **Default**: ``False``
 
 If set to ``True``, "Called Station ID" of a RADIUS session will be
-converted (as per configuration defined in :ref:`OPENWISP_RADIUS_CALLED_STATION_IDS <openwisp_radius_called_station_ids>`)
+converted (as per configuration defined in :ref:`OPENWISP_RADIUS_CALLED_STATION_IDS <immunity_radius_called_station_ids>`)
 just after the RADIUS session is created.
 
-.. _openwisp_radius_openvpn_datetime_format:
+.. _immunity_radius_openvpn_datetime_format:
 
 ``OPENWISP_RADIUS_OPENVPN_DATETIME_FORMAT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -350,19 +350,19 @@ urls to another installed module, example, ``myapp.urls``
 
 **Default**: ``/`` (points to same server)
 
-If you have a seperate instance of openwisp-radius API on a
+If you have a seperate instance of immunity-radius API on a
 different domain, you can use this option to change the base of the image
 download URL, this will enable you to point to your API server's domain,
 example value: ``https://myradius.myapp.com``.
 
-.. _openwisp_radius_api:
+.. _immunity_radius_api:
 
 ``OPENWISP_RADIUS_API``
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``True``
 
-Indicates whether the REST API of openwisp-radius is enabled or not.
+Indicates whether the REST API of immunity-radius is enabled or not.
 
 ``OPENWISP_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -375,7 +375,7 @@ When this setting is ``True`` radius user tokens are deleted right after a succe
 authorization is performed. This reduces the possibility of attackers reusing
 the access tokens and posing as other users if they manage to intercept it somehow.
 
-.. _openwisp_radius_api_authorize_reject:
+.. _immunity_radius_api_authorize_reject:
 
 ``OPENWISP_RADIUS_API_AUTHORIZE_REJECT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -408,7 +408,7 @@ In the event there is no user in the database corresponding to the ``username`` 
 accounting instance, the failure will be logged with ``warning`` level but the accounting
 will be saved as usual.
 
-.. _openwisp_radius_allowed_mobile_prefixes:
+.. _immunity_radius_allowed_mobile_prefixes:
 
 ``OPENWISP_RADIUS_ALLOWED_MOBILE_PREFIXES``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -437,19 +437,19 @@ or Cameroon (``+237``).
 
     This setting is applicable only for organizations
     which have :ref:`enabled the SMS verification option
-    <openwisp_radius_sms_verification_enabled>`.
+    <immunity_radius_sms_verification_enabled>`.
 
 ``OPENWISP_RADIUS_ALLOW_FIXED_LINE_OR_MOBILE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
 
-OpenWISP RADIUS only allow using mobile phone numbers for user registration.
+Immunity RADIUS only allow using mobile phone numbers for user registration.
 This can cause issues in regions where fixed line and mobile phone numbers
  uses the same pattern (e.g. USA). Setting the value to ``True``
 would make phone number type checking less strict.
 
-.. _openwisp_radius_optional_registration_fields:
+.. _immunity_radius_optional_registration_fields:
 
 ``OPENWISP_RADIUS_OPTIONAL_REGISTRATION_FIELDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -528,7 +528,7 @@ be used.
 A dictionary representing the frontend URLs through which end users can complete
 the password reset operation.
 
-The frontend could be `openwisp-wifi-login-pages <https://github.com/openwisp/openwisp-wifi-login-pages>`_
+The frontend could be `immunity-wifi-login-pages <https://github.com/edge-servers/immunity-wifi-login-pages>`_
 or another in-house captive page solution.
 
 Keys of the dictionary must be either UUID of organizations or ``__all__``, which is the fallback URL
@@ -545,9 +545,9 @@ The meaning of the variables in the string is the following:
 - ``{uid}``: uid of the password reset request
 - ``{token}``: token of the password reset request
 
-If you're using `openwisp-wifi-login-pages <https://github.com/openwisp/openwisp-wifi-login-pages>`_,
+If you're using `immunity-wifi-login-pages <https://github.com/edge-servers/immunity-wifi-login-pages>`_,
 the configuration is fairly simple, in case the nodejs app is installed in the same domain
-of openwisp-radius, you only have to ensure the domain field in the main Site object is correct,
+of immunity-radius, you only have to ensure the domain field in the main Site object is correct,
 if instead the nodejs app is deployed on a different domain, say ``login.wifiservice.com``,
 the configuration should be simply changed to:
 
@@ -557,7 +557,7 @@ the configuration should be simply changed to:
         '__all__': 'https://login.wifiservice.com/{organization}/password/reset/confirm/{uid}/{token}'
     }
 
-.. _openwisp_radius_registration_api_enabled:
+.. _immunity_radius_registration_api_enabled:
 
 ``OPENWISP_RADIUS_REGISTRATION_API_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -582,7 +582,7 @@ then edit a specific organization and scroll down to
     if all the organization use the same configuration, we recommend
     changing the global setting.
 
-.. _openwisp_radius_sms_verification_enabled:
+.. _immunity_radius_sms_verification_enabled:
 
 ``OPENWISP_RADIUS_SMS_VERIFICATION_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -594,7 +594,7 @@ then edit a specific organization and scroll down to
     If you're looking for instructions on how to configure SMS sending,
     see :ref:`SMS Token Related Settings <sms_token_related_settings>`.
 
-If :ref:`Identity verification is required <openwisp_radius_needs_identity_verification>`,
+If :ref:`Identity verification is required <immunity_radius_needs_identity_verification>`,
 this setting indicates whether users who sign up should be required to
 verify their mobile phone number via SMS.
 
@@ -604,7 +604,7 @@ via the organization radius settings section of the admin interface.
 .. image:: /images/organization_sms_verification_setting.png
    :alt: SMS verification enabled
 
-.. _openwisp_radius_needs_identity_verification:
+.. _immunity_radius_needs_identity_verification:
 
 ``OPENWISP_RADIUS_MAC_ADDR_ROAMING_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -646,7 +646,7 @@ The following choices are available by default:
 - ``manual``: manually created
 - ``email``: Email (No Identity Verification)
 - ``mobile_phone``: Mobile phone number
-  :ref:`verification via SMS <openwisp_radius_sms_verification_enabled>`
+  :ref:`verification via SMS <immunity_radius_sms_verification_enabled>`
 - ``social_login``: :ref:`social login feature <social_login>`
 
 .. note::
@@ -659,11 +659,11 @@ The following choices are available by default:
     Organizations which are required by law to identify their users
     before allowing them to access the network (eg: ISPs) can restrict
     users to register only through this method and can configure the system
-    to only :ref:`allow international mobile prefixes <openwisp_radius_allowed_mobile_prefixes>`
+    to only :ref:`allow international mobile prefixes <immunity_radius_allowed_mobile_prefixes>`
     of countries which require a valid ID document to buy a SIM card.
 
     **Disclaimer:** these are just suggestions on possible configurations
-    of OpenWISP RADIUS and must not be considered as legal advice.
+    of Immunity RADIUS and must not be considered as legal advice.
 
 Adding support for more registration/verification methods
 #########################################################
@@ -678,7 +678,7 @@ For example:
 
 .. code-block:: python
 
-    from openwisp_radius.registration import (
+    from immunity_radius.registration import (
         register_registration_method,
         unregister_registration_method,
     )
@@ -700,7 +700,7 @@ For example:
     Pass ``strong_identity`` as ``True`` to to indicate that users who
     register using that method have indirectly verified their identity
     (eg:  :ref:`SMS verification
-    <openwisp_radius_sms_verification_enabled>`,
+    <immunity_radius_sms_verification_enabled>`,
     credit card, national ID card, etc).
 
 .. warning::
@@ -718,9 +718,9 @@ For example:
     for these unverified users.
 
     Payment flows and credit/debit card verification are fully implemented
-    in **OpenWISP Subscriptions**, a premium module available only to
+    in **Immunity Subscriptions**, a premium module available only to
     customers of the
-    :ref:`commercial support offering of OpenWISP <support>`.
+    :ref:`commercial support offering of Immunity <support>`.
 
 Email related settings
 ======================
@@ -728,7 +728,7 @@ Email related settings
 Emails can be sent to users whose usernames or passwords have been auto-generated.
 The content of these emails can be customized with the settings explained below.
 
-.. _openwisp_radius_batch_mail_subject:
+.. _immunity_radius_batch_mail_subject:
 
 ``OPENWISP_RADIUS_BATCH_MAIL_SUBJECT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -737,7 +737,7 @@ The content of these emails can be customized with the settings explained below.
 
 It is the subject of the mail to be sent to the users. Eg: ``Login Credentials``.
 
-.. _openwisp_radius_batch_mail_message:
+.. _immunity_radius_batch_mail_message:
 
 ``OPENWISP_RADIUS_BATCH_MAIL_MESSAGE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -749,7 +749,7 @@ The message should be a string in the format ``Your username is {} and password 
 The text could be anything but should have the format string operator ``{}`` for
 ``.format`` operations to work.
 
-.. _openwisp_radius_batch_mail_sender:
+.. _immunity_radius_batch_mail_sender:
 
 ``OPENWISP_RADIUS_BATCH_MAIL_SENDER``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -790,8 +790,8 @@ to include the new classes, eg:
 
     OPENWISP_RADIUS_COUNTERS = [
         # default counters for PostgreSQL, may be removed if not needed
-        'openwisp_radius.counters.postgresql.daily_counter.DailyCounter',
-        'openwisp_radius.counters.postgresql.daily_traffic_counter.DailyTrafficCounter',
+        'immunity_radius.counters.postgresql.daily_counter.DailyCounter',
+        'immunity_radius.counters.postgresql.daily_traffic_counter.DailyTrafficCounter',
         # custom counters
         'myproject.counters.CustomCounter1',
         'myproject.counters.CustomCounter2',
@@ -851,7 +851,7 @@ Social Login related settings
 
 The following settings are related to the :ref:`social login feature <social_login>`.
 
-.. _openwisp_radius_social_registration_enabled:
+.. _immunity_radius_social_registration_enabled:
 
 ``OPENWISP_RADIUS_SOCIAL_REGISTRATION_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -884,7 +884,7 @@ SAML related settings
 
 The following settings are related to the :ref:`SAML feature <saml_>`.
 
-.. _openwisp_radius_saml_registration_enabled:
+.. _immunity_radius_saml_registration_enabled:
 
 ``OPENWISP_RADIUS_SAML_REGISTRATION_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -928,7 +928,7 @@ created during SAML sign-in as verified users (``RegisteredUser.is_verified=True
 This is useful when SAML identity providers can be trusted
 to be legally valid identity verifiers.
 
-.. _openwisp_radius_saml_updates_pre_existing_username:
+.. _immunity_radius_saml_updates_pre_existing_username:
 
 ``OPENWISP_RADIUS_SAML_UPDATES_PRE_EXISTING_USERNAME``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -948,10 +948,10 @@ SMS token related settings
 These settings allow to control aspects and limitations of the SMS tokens
 which are sent to users for the purpose of
 :ref:`verifying their mobile phone number
-<openwisp_radius_needs_identity_verification>`.
+<immunity_radius_needs_identity_verification>`.
 
 These settings are applicable only when
-:ref:`SMS verification is enabled <openwisp_radius_sms_verification_enabled>`.
+:ref:`SMS verification is enabled <immunity_radius_sms_verification_enabled>`.
 
 ``SENDSMS_BACKEND``
 ~~~~~~~~~~~~~~~~~~~

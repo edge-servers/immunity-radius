@@ -2,8 +2,8 @@
 Contributing
 ============
 
-Thank you for taking the time to contribute to openwisp-radius, please read the
-`guide for contributing to openwisp repositories <http://openwisp.io/docs/developer/contributing.html>`_.
+Thank you for taking the time to contribute to immunity-radius, please read the
+`guide for contributing to immunity repositories <http://immunity.io/docs/developer/contributing.html>`_.
 
 Follow these guidelines to speed up the process.
 
@@ -13,7 +13,7 @@ Follow these guidelines to speed up the process.
 
 .. note::
     **In order to have your contribution accepted faster**, please read the
-    `OpenWISP contributing guidelines <http://openwisp.io/docs/developer/contributing.html>`_ and make sure to follow its guidelines.
+    `Immunity contributing guidelines <http://immunity.io/docs/developer/contributing.html>`_ and make sure to follow its guidelines.
 
 Setup
 -----
@@ -34,7 +34,7 @@ When you introduce changes, ensure test coverage is not decreased with:
 
 .. code-block:: shell
 
-    coverage run --source=openwisp_radius runtests.py
+    coverage run --source=immunity_radius runtests.py
 
 Follow style conventions
 ------------------------
@@ -48,18 +48,18 @@ First of all, install the test requirements:
     npm install -g jslint
 
 Before committing your work check that your changes are not breaking
-our `coding style conventions <https://openwisp.io/docs/developer/contributing.html#coding-style-conventions>`_:
+our `coding style conventions <https://immunity.io/docs/developer/contributing.html#coding-style-conventions>`_:
 
 .. code-block:: shell
 
     # reformat the code according to the conventions
-    openwisp-qa-format
+    immunity-qa-format
     # run QA checks
     ./run-qa-checks
 
 For more information, please see:
 
-- `OpenWISP Coding Style Conventions <https://openwisp.io/docs/developer/contributing.html#coding-style-conventions>`_
+- `Immunity Coding Style Conventions <https://immunity.io/docs/developer/contributing.html#coding-style-conventions>`_
 
 Update the documentation
 ------------------------
@@ -83,4 +83,4 @@ Send pull request
 -----------------
 
 Now is time to push your changes to github and open a `pull request
-<https://github.com/openwisp/openwisp-radius/pulls>`_!
+<https://github.com/edge-servers/immunity-radius/pulls>`_!

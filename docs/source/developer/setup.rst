@@ -5,13 +5,13 @@ Setup
 Try the demo
 ------------
 
-**Need a quick overview?** `Try the OpenWISP Demo <https://openwisp.org/demo.html>`_.
+**Need a quick overview?** `Try the Immunity Demo <https://immunity.org/demo.html>`_.
 
 Deploy it in production
 -----------------------
 
 An automated installer is available at
-`ansible-openwisp2 <https://github.com/openwisp/ansible-openwisp2#enabling-the-radius-module>`_.
+`ansible-immunity2 <https://github.com/edge-servers/ansible-immunity2#enabling-the-radius-module>`_.
 
 Create a virtual environment
 ----------------------------
@@ -48,8 +48,8 @@ Install from pypi:
 
     # REQUIRED: update base python packages
     pip install -U pip setuptools wheel
-    # install openwisp-radius
-    pip install openwisp-radius
+    # install immunity-radius
+    pip install immunity-radius
 
 Install development version
 ---------------------------
@@ -60,8 +60,8 @@ Install tarball:
 
     # REQUIRED: update base python packages
     pip install -U pip setuptools wheel
-    # install openwisp-radius
-    pip install https://github.com/openwisp/openwisp-radius/tarball/master
+    # install immunity-radius
+    pip install https://github.com/edge-servers/immunity-radius/tarball/master
 
 Alternatively you can install via pip using git:
 
@@ -69,8 +69,8 @@ Alternatively you can install via pip using git:
 
     # REQUIRED: update base python packages
     pip install -U pip setuptools wheel
-    # install openwisp-radius
-    pip install -e git+git://github.com/openwisp/openwisp-radius#egg=openwisp-radius
+    # install immunity-radius
+    pip install -e git+git://github.com/immunity/immunity-radius#egg=immunity-radius
 
 If you want to contribute, install your cloned fork:
 
@@ -78,9 +78,9 @@ If you want to contribute, install your cloned fork:
 
     # REQUIRED: update base python packages
     pip install -U pip setuptools wheel
-    # install your forked openwisp-radius
-    git clone git@github.com:<your_fork>/openwisp-radius.git
-    cd openwisp-radius
+    # install your forked immunity-radius
+    git clone git@github.com:<your_fork>/immunity-radius.git
+    cd immunity-radius
     pip install -e .
 
 Setup (integrate in an existing django project)
@@ -98,8 +98,8 @@ modules listed ``INSTALLED_APPS``:
         'django.contrib.messages',
         'django.contrib.staticfiles',
         'django.contrib.humanize',
-        # openwisp admin theme
-        'openwisp_utils.admin_theme',
+        # immunity admin theme
+        'immunity_utils.admin_theme',
         # all-auth
         'django.contrib.sites',
         'allauth',
@@ -113,9 +113,9 @@ modules listed ``INSTALLED_APPS``:
         'rest_framework.authtoken',
         'dj_rest_auth',
         'dj_rest_auth.registration',
-        # openwisp radius
-        'openwisp_radius',
-        'openwisp_users',
+        # immunity radius
+        'immunity_radius',
+        'immunity_users',
         'private_storage',
         'drf_yasg',
     ]
@@ -144,10 +144,10 @@ your ``settings.py``:
 
 .. code-block:: python
 
-    AUTH_USER_MODEL = 'openwisp_users.User'
+    AUTH_USER_MODEL = 'immunity_users.User'
     SITE_ID = 1
     AUTHENTICATION_BACKENDS = (
-        'openwisp_users.backends.UsersAuthenticationBackend',
+        'immunity_users.backends.UsersAuthenticationBackend',
     )
 
 Add allowed freeradius hosts  in ``settings.py``:
@@ -157,24 +157,24 @@ Add allowed freeradius hosts  in ``settings.py``:
     OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1']
 
 .. note::
-    Read more about :ref:`freeradius allowed hosts in settings page <openwisp_radius_freeradius_allowed_hosts>`.
+    Read more about :ref:`freeradius allowed hosts in settings page <immunity_radius_freeradius_allowed_hosts>`.
 
 Add the URLs to your main ``urls.py``:
 
 .. code-block:: python
 
-    from openwisp_radius.urls import get_urls
+    from immunity_radius.urls import get_urls
 
     urlpatterns = [
         # ... other urls in your project ...
 
         # django admin interface urls
         path('admin/', admin.site.urls),
-        # openwisp-radius urls
-        path('api/v1/', include('openwisp_utils.api.urls')),
-        path('api/v1/', include('openwisp_users.api.urls')),
-        path('accounts/', include('openwisp_users.accounts.urls')),
-        path('', include('openwisp_radius.urls'))
+        # immunity-radius urls
+        path('api/v1/', include('immunity_utils.api.urls')),
+        path('api/v1/', include('immunity_users.api.urls')),
+        path('accounts/', include('immunity_users.accounts.urls')),
+        path('', include('immunity_radius.urls'))
     ]
 
 Then run:
@@ -189,7 +189,7 @@ Migrating an existing freeradius database
 -----------------------------------------
 
 If you already have a freeradius 3 database with the default schema, you should
-be able to use it with openwisp-radius (and extended apps) easily:
+be able to use it with immunity-radius (and extended apps) easily:
 
 1. first of all, back up your existing database;
 2. configure django to connect to your existing database;
@@ -199,7 +199,7 @@ be able to use it with openwisp-radius (and extended apps) easily:
 
 .. code-block:: shell
 
-    ./manage.py migrate --fake openwisp-radius 0001_initial_freeradius
+    ./manage.py migrate --fake immunity-radius 0001_initial_freeradius
     ./manage.py migrate
 
 Automated periodic tasks
@@ -212,7 +212,7 @@ There are two ways to automate these tasks:
 1. Celery-beat (Recommended Method)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. You need to create a `celery configuration file as it's created in example file <https://github.com/openwisp/openwisp-radius/tree/master/tests/openwisp2/celery.py>`_.
+1. You need to create a `celery configuration file as it's created in example file <https://github.com/edge-servers/immunity-radius/tree/master/tests/immunity2/celery.py>`_.
 
 2. Add celery to ``__init__.py`` of your project:
 
@@ -222,7 +222,7 @@ There are two ways to automate these tasks:
 
     __all__ = ['celery_app']
 
-3. In the settings.py, `configure the CELERY_BEAT_SCHEDULE <https://github.com/openwisp/openwisp-radius/tree/master/tests/openwisp2/settings.py#L141>`_. Some celery tasks take an argument, for instance
+3. In the settings.py, `configure the CELERY_BEAT_SCHEDULE <https://github.com/edge-servers/immunity-radius/tree/master/tests/immunity2/settings.py#L141>`_. Some celery tasks take an argument, for instance
 ``365`` is given here for ``delete_old_radacct`` in the example settings.
 These arguments are passed to their respective management commands. More information about these parameters can be
 found at the `management commands page <../user/management_commands.html>`_.
@@ -268,7 +268,7 @@ virtual environment.
 
 Also, change ``<full/path/to>`` to the directory where ``manage.py`` is.
 
-To get the absolute path to ``manage.py`` when openwisp-radius is
+To get the absolute path to ``manage.py`` when immunity-radius is
 installed for development, navigate to the base directory of
 the cloned fork. Then, run:
 
@@ -317,8 +317,8 @@ Install your forked repo:
 
 .. code-block:: shell
 
-    git clone git://github.com/<your_username>/openwisp-radius
-    cd openwisp-radius/
+    git clone git://github.com/<your_username>/immunity-radius
+    cd immunity-radius/
     pip install -e .[saml,openvpn_status]
 
 Install test requirements:
@@ -360,15 +360,15 @@ and run redis inside docker container:
 
 .. code-block:: shell
 
-    docker run -p 6379:6379 --name openwisp-redis -d redis:alpine
+    docker run -p 6379:6379 --name immunity-redis -d redis:alpine
 
 Run celery (it is recommended to use a tool like supervisord in production):
 
 .. code-block:: shell
 
     # Optionally, use ``--detach`` argument to avoid using multiple terminals
-    celery -A openwisp2 worker -l info
-    celery -A openwisp2 beat -l info
+    celery -A immunity2 worker -l info
+    celery -A immunity2 beat -l info
 
 Troubleshooting
 ---------------

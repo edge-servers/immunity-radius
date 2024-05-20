@@ -3,7 +3,7 @@ Enforcing session limits
 ========================
 
 The default freeradius schema does not include a table where groups are stored,
-but openwisp-radius adds a model called ``RadiusGroup`` and alters the default
+but immunity-radius adds a model called ``RadiusGroup`` and alters the default
 freeradius schema to add some optional foreign-keys from other tables like:
 
 - ``radgroupcheck``
@@ -22,7 +22,7 @@ of a Radius Group (``admin`` > ``groups`` > ``add group`` or ``change group``).
 Default groups
 --------------
 
-Some groups are created automatically by **openwisp-radius** during the initial
+Some groups are created automatically by **immunity-radius** during the initial
 migrations:
 
 - ``users``: this is the default group which limits users sessions
@@ -36,7 +36,7 @@ new groups according to your needs and preferences.
 **Note on the default group**: keep in mind that the group flagged as
 default will by automatically assigned to new users, it cannot be deleted nor
 it can be flagged as non-default: to set another group as default simply check
-that group as the default one, save and **openwisp-radius** will remove the
+that group as the default one, save and **immunity-radius** will remove the
 default flag from the old default group.
 
 .. _counters:
@@ -47,9 +47,9 @@ How limits are enforced: counters
 In Freeradius, this kind of feature is implemented with the
 `rml_sqlcounter <https://wiki.freeradius.org/modules/Rlm_sqlcounter>`_.
 
-The problem with this FreeRADIUS module is that it doesn't know about OpenWISP,
+The problem with this FreeRADIUS module is that it doesn't know about Immunity,
 so it does not support multi-tenancy.
-This means that if multiple organizations are using the OpenWISP instance,
+This means that if multiple organizations are using the Immunity instance,
 it's possible that a user may be an end user of multiple organizations and
 hence have one radius group assigned for each, but the sqlcounter module will
 not understand the right group to choose when enforcing limits, with the
@@ -58,7 +58,7 @@ FreeRADIUS site with different sqlcounter configurations is created for
 each organization using the system, which is doable but cumbersome to maintain.
 
 For the reasons explained above, an alternative counter feature
-has been implemented in the authorize API endpoint of OpenWISP RADIUS.
+has been implemented in the authorize API endpoint of Immunity RADIUS.
 
 The default counters available are described below.
 
@@ -141,7 +141,7 @@ Writing custom counter classes
 
 It is possible to write custom counter classes to satisfy any need.
 
-The easiest way is to subclass ``openwisp_radius.counters.base.BaseCounter``,
+The easiest way is to subclass ``immunity_radius.counters.base.BaseCounter``,
 then implement at least the following attributes:
 
 - ``counter_name``: name of the counter, used internally for debugging;
@@ -153,10 +153,10 @@ then implement at least the following attributes:
 - ``get_sql_params``: a method which returns a list of the arguments passed
   to the interpolation of the raw sql query.
 
-Please look at the source code of OpenWISP RADIUS to find out more.
+Please look at the source code of Immunity RADIUS to find out more.
 
-- `openwisp_radius.counters.base <https://github.com/openwisp/openwisp-radius/blob/master/openwisp_radius/counters/base.py>`_
-- `openwisp_radius.counters.postgresql <https://github.com/openwisp/openwisp-radius/tree/master/openwisp_radius/counters/postgresql>`_
+- `immunity_radius.counters.base <https://github.com/edge-servers/immunity-radius/blob/master/immunity_radius/counters/base.py>`_
+- `immunity_radius.counters.postgresql <https://github.com/edge-servers/immunity-radius/tree/master/immunity_radius/counters/postgresql>`_
 
 Once the new class is ready, you will need to add it to
 :ref:`counters_setting`.

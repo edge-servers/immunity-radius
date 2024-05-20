@@ -7,14 +7,14 @@ Freeradius Setup for Captive Portal authentication
 This guide explains how to install and configure
 `freeradius 3 <https://freeradius.org>`_
 in order to make it work with
-`OpenWISP RADIUS <https://github.com/openwisp/openwisp-radius/>`_
+`Immunity RADIUS <https://github.com/edge-servers/immunity-radius/>`_
 for Captive Portal authentication.
 
 The guide is written for debian based systems, other linux
 distributions can work as well but the name of packages and
 files may be different.
 
-Widely used solutions used with OpenWISP RADIUS are PfSense and
+Widely used solutions used with Immunity RADIUS are PfSense and
 Coova-Chilli, but other solutions can be used as well.
 
 .. note::
@@ -23,16 +23,16 @@ Coova-Chilli, but other solutions can be used as well.
     or alternatively, they will need to perform social login or
     some other kind of Single Sign On (SSO).
 
-    The `openwisp-wifi-login-pages
-    <https://github.com/openwisp/openwisp-wifi-login-pages>`_ web app
+    The `immunity-wifi-login-pages
+    <https://github.com/edge-servers/immunity-wifi-login-pages>`_ web app
     is an open source solution which integrates with
-    OpenWISP RADIUS to provide features like self user registration,
+    Immunity RADIUS to provide features like self user registration,
     social login, SSO/SAML login, SMS verification,
     simple username & password login using the
     :ref:`radius_user_token` method.
 
-    For more information see: `openwisp-wifi-login-pages
-    <https://github.com/openwisp/openwisp-wifi-login-pages>`_.
+    For more information see: `immunity-wifi-login-pages
+    <https://github.com/edge-servers/immunity-wifi-login-pages>`_.
 
 How to install freeradius 3
 ---------------------------
@@ -76,7 +76,7 @@ If you use PostgreSQL:
 
     You have to install and configure an SQL database like
     PostgreSQL, MySQL (SQLite can also work, but we won't treat it here)
-    and make sure both OpenWISP RADIUS and Freeradius point to it.
+    and make sure both Immunity RADIUS and Freeradius point to it.
 
     The steps outlined above may not be sufficient to get the DB
     of your choice to run, please consult the documentation of your
@@ -119,12 +119,12 @@ Configure the REST module
 Configure the rest module by editing the file ``/etc/freeradius/mods-enabled/rest``,
 substituting ``<url>`` with your django project's URL, (for example, if you are
 testing a development environment, the URL could be ``http://127.0.0.1:8000``,
-otherwise in production could be something like ``https://openwisp2.mydomain.org``)-
+otherwise in production could be something like ``https://immunity2.mydomain.org``)-
 
 .. warning::
-    Remember you need to add your freeradius server IP address in `openwisp freeradius
-    allowed hosts settings <../user/settings.html#openwisp-radius-freeradius-allowed-hosts>`_.
-    If the freeradius server IP is not in allowed hosts, all requests to openwisp
+    Remember you need to add your freeradius server IP address in `immunity freeradius
+    allowed hosts settings <../user/settings.html#immunity-radius-freeradius-allowed-hosts>`_.
+    If the freeradius server IP is not in allowed hosts, all requests to immunity
     radius API will return ``403``.
 
 Refer to the `rest module documentation <https://networkradius.com/doc/3.0.10/raddb/mods-available/rest.html>`_
@@ -170,7 +170,7 @@ Configure the SQL module
 
     The ``sql`` module is not extremely needed but we treat it here since
     it can be useful to implement custom behavior, moreover we treat it
-    in this document also to show that OpenWISP RADIUS can integrate itself
+    in this document also to show that Immunity RADIUS can integrate itself
     with other widely used FreeRADIUS modules.
 
 Once you have configured properly an SQL server, e.g. PostgreSQL:, and you can
@@ -209,7 +209,7 @@ This section explains how to configure the FreeRADIUS site.
 
 Please refer to :ref:`freeradius_api_authentication` to understand the
 different possibilities with which FreeRADIUS can authenticate requests
-going to OpenWISP RADIUS so that OpenWISP RADIUS knows to which
+going to Immunity RADIUS so that Immunity RADIUS knows to which
 organization each request belongs.
 
 If you are **not** using the method described in :ref:`radius_user_token`,
@@ -293,7 +293,7 @@ In case of errors you can run `freeradius in debug mode
 ``freeradius -X`` in order to find out the reason of the failure.
 
 **A common problem, especially during development and testing, is that the
-openwisp-radius application may not be running**, in that case you can find
+immunity-radius application may not be running**, in that case you can find
 out how to run the django development server in the
 :ref:`Install for development <installing_for_development>` section.
 
@@ -307,14 +307,14 @@ Reconfigure the development environment using PostgreSQL
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You'll have to reconfigure the development environment as well before being able
-to use openwisp-radius for managing the freeradius databases.
+to use immunity-radius for managing the freeradius databases.
 
 If you have installed for development, create a file ``tests/local_settings.py``
 and add the following code to configure the database:
 
 .. code-block:: python
 
-   # openwisp-radius/tests/local_settings.py
+   # immunity-radius/tests/local_settings.py
      DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -338,7 +338,7 @@ user authorization information such as User-Name and
 password can be stored using the *radcheck*
 table provided by Freeradius' default SQL schema.
 
-OpenWISP RADIUS instead uses the FreeRADIUS
+Immunity RADIUS instead uses the FreeRADIUS
 `rlm_rest <https://networkradius.com/doc/current/raddb/mods-available/rest.html>`_
 module in order to take advantage of the built in user management and
 authentication capabilities of Django
@@ -352,7 +352,7 @@ in parallel with (or instead of) `rlm_rest <https://networkradius.com/doc/curren
 for authorization.
 
 .. note::
-    Bypassing the REST API of openwisp-radius means that you
+    Bypassing the REST API of immunity-radius means that you
     will have to manually create the radius check entries for each user
     you want to authenticate with FreeRADIUS.
 
@@ -495,4 +495,4 @@ Customizing your configuration
 ------------------------------
 
 You can further customize your freeradius configuration and exploit the many features of freeradius but
-you will need to test how your configuration plays with *openwisp-radius*.
+you will need to test how your configuration plays with *immunity-radius*.

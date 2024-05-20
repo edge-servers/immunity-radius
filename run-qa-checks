@@ -21,27 +21,27 @@ rm -rf docs/build/
 
 echo ''
 echo 'Check JavaScript Linting'
-jslint ./openwisp_radius/static/openwisp-radius/js/*.js
+jslint ./immunity_radius/static/immunity-radius/js/*.js
 
 echo ''
 echo 'Compiling translations'
-cd openwisp_radius
+cd immunity_radius
 django-admin compilemessages
 cd ..
 
 echo ''
-echo 'Running checks for openwisp-radius'
-openwisp-qa-check \
-        --migration-path "./openwisp_radius/migrations"
+echo 'Running checks for immunity-radius'
+immunity-qa-check \
+        --migration-path "./immunity_radius/migrations"
 
 echo ''
 echo 'Running checks for SAMPLE_APP'
-SAMPLE_APP=1 openwisp-qa-check \
+SAMPLE_APP=1 immunity-qa-check \
         --skip-isort \
         --skip-flake8 \
         --skip-black \
         --skip-checkmigrations \
         --skip-checkendline \
         --skip-checkcommit \
-        --migration-path "./tests/openwisp2/sample_radius/migrations
-                          ./tests/openwisp2/sample_users/migrations"
+        --migration-path "./tests/immunity2/sample_radius/migrations
+                          ./tests/immunity2/sample_users/migrations"

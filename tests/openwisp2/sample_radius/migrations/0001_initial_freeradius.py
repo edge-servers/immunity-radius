@@ -5,9 +5,9 @@ import model_utils.fields
 import swapper
 from django.db import migrations, models
 
-import openwisp_radius.base.models
-import openwisp_users.mixins
-from openwisp_radius.base.models import RAD_NAS_TYPES
+import immunity_radius.base.models
+import immunity_users.mixins
+from immunity_radius.base.models import RAD_NAS_TYPES
 
 
 class Migration(migrations.Migration):
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
     """
 
     initial = True
-    nas_model = swapper.get_model_name('openwisp_radius', 'Nas')
+    nas_model = swapper.get_model_name('immunity_radius', 'Nas')
     model_app_label = swapper.split(nas_model)[0]
     dependencies = [(model_app_label, '__first__')]
 
@@ -111,13 +111,13 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                'swappable': swapper.swappable_setting('openwisp_radius', 'Nas'),
+                'swappable': swapper.swappable_setting('immunity_radius', 'Nas'),
                 'db_table': 'nas',
                 'verbose_name_plural': 'NAS',
                 'abstract': False,
                 'verbose_name': 'NAS',
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='RadiusAccounting',
@@ -359,7 +359,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
                 'verbose_name': 'accounting',
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='RadiusCheck',
@@ -449,8 +449,8 @@ class Migration(migrations.Migration):
                 'verbose_name': 'check',
             },
             bases=(
-                openwisp_users.mixins.ValidateOrgMixin,
-                openwisp_radius.base.models.AutoUsernameMixin,
+                immunity_users.mixins.ValidateOrgMixin,
+                immunity_radius.base.models.AutoUsernameMixin,
                 models.Model,
             ),
         ),
@@ -524,7 +524,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
                 'verbose_name': 'group check',
             },
-            bases=(openwisp_radius.base.models.AutoGroupnameMixin, models.Model),
+            bases=(immunity_radius.base.models.AutoGroupnameMixin, models.Model),
         ),
         migrations.CreateModel(
             name='RadiusGroupReply',
@@ -582,7 +582,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
                 'verbose_name': 'group reply',
             },
-            bases=(openwisp_radius.base.models.AutoGroupnameMixin, models.Model),
+            bases=(immunity_radius.base.models.AutoGroupnameMixin, models.Model),
         ),
         migrations.CreateModel(
             name='RadiusPostAuth',
@@ -641,7 +641,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
                 'verbose_name': 'post auth',
             },
-            bases=(openwisp_users.mixins.ValidateOrgMixin, models.Model),
+            bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
         migrations.CreateModel(
             name='RadiusReply',
@@ -700,8 +700,8 @@ class Migration(migrations.Migration):
                 'verbose_name': 'reply',
             },
             bases=(
-                openwisp_users.mixins.ValidateOrgMixin,
-                openwisp_radius.base.models.AutoUsernameMixin,
+                immunity_users.mixins.ValidateOrgMixin,
+                immunity_radius.base.models.AutoUsernameMixin,
                 models.Model,
             ),
         ),
@@ -753,8 +753,8 @@ class Migration(migrations.Migration):
                 'verbose_name': 'user group',
             },
             bases=(
-                openwisp_radius.base.models.AutoGroupnameMixin,
-                openwisp_radius.base.models.AutoUsernameMixin,
+                immunity_radius.base.models.AutoGroupnameMixin,
+                immunity_radius.base.models.AutoUsernameMixin,
                 models.Model,
             ),
         ),

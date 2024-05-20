@@ -4,7 +4,7 @@ import sys
 
 from setuptools import find_packages, setup
 
-from openwisp_radius import get_version
+from immunity_radius import get_version
 
 if sys.argv[-1] == 'publish':
     # delete any *.pyc, *.pyo and __pycache__
@@ -20,28 +20,28 @@ if sys.argv[-1] == 'publish':
 
 
 setup(
-    name='openwisp-radius',
+    name='immunity-radius',
     version=get_version(),
     license='GPL3',
-    author='OpenWISP',
-    author_email='support@openwisp.io',
-    description='OpenWISP Radius',
+    author='Immunity',
+    author_email='support@immunity.io',
+    description='Immunity Radius',
     long_description=open('README.rst').read(),
-    url='https://openwisp.org',
-    download_url='https://github.com/openwisp/openwisp-radius/releases',
+    url='https://immunity.org',
+    download_url='https://github.com/edge-servers/immunity-radius/releases',
     platforms=['Platform Independent'],
-    keywords=['django', 'freeradius', 'networking', 'openwisp'],
+    keywords=['django', 'freeradius', 'networking', 'immunity'],
     packages=find_packages(exclude=['tests*', 'docs*']),
     include_package_data=True,
     zip_safe=False,
     install_requires=[
         (
-            'openwisp-users '
-            '@ https://github.com/openwisp/openwisp-users/tarball/master'
+            'immunity-users '
+            '@ https://github.com/edge-servers/immunity-users/tarball/master'
         ),
         (
-            'openwisp-utils[rest,celery] @ '
-            'https://github.com/openwisp/openwisp-utils/tarball/master'
+            'immunity-utils[rest,celery] @ '
+            'https://github.com/edge-servers/immunity-utils/tarball/master'
         ),
         'passlib~=1.7.1',
         'djangorestframework-link-header-pagination~=0.1.1',

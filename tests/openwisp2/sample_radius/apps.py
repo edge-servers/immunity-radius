@@ -1,10 +1,10 @@
-from openwisp_radius.apps import OpenwispRadiusConfig
-from openwisp_radius.receivers import send_email_on_new_accounting_handler
-from openwisp_radius.signals import radius_accounting_success
+from immunity_radius.apps import ImmunityRadiusConfig
+from immunity_radius.receivers import send_email_on_new_accounting_handler
+from immunity_radius.signals import radius_accounting_success
 
 
-class SampleOpenwispRadiusConfig(OpenwispRadiusConfig):
-    name = 'openwisp2.sample_radius'
+class SampleImmunityRadiusConfig(ImmunityRadiusConfig):
+    name = 'immunity2.sample_radius'
     label = 'sample_radius'
     verbose_name = 'Sample Radius'
 
@@ -19,4 +19,4 @@ class SampleOpenwispRadiusConfig(OpenwispRadiusConfig):
         return super().connect_signals()
 
 
-del OpenwispRadiusConfig
+del ImmunityRadiusConfig

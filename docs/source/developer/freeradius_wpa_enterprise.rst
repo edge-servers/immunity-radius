@@ -5,7 +5,7 @@ Freeradius Setup for WPA Enterprise (EAP-TTLS-PAP) authentication
 This guide explains how to install and configure
 `freeradius 3 <https://freeradius.org>`_
 in order to make it work with
-`OpenWISP RADIUS <https://github.com/openwisp/openwisp-radius/>`_
+`Immunity RADIUS <https://github.com/edge-servers/immunity-radius/>`_
 for WPA Enterprise EAP-TTLS-PAP authentication.
 
 The setup will allow users to authenticate via WiFi WPA Enterprise networks
@@ -15,8 +15,8 @@ Users can either be created manually via the admin interface,
 :ref:`imported from CSV <importing_users>`,
 or can self register through a web page which makes use of the
 :ref:`registration REST API <user_registration>`
-(like `openwisp-wifi-login-pages
-<https://github.com/openwisp/openwisp-wifi-login-pages>`_).
+(like `immunity-wifi-login-pages
+<https://github.com/edge-servers/immunity-wifi-login-pages>`_).
 
 Prerequisites
 -------------
@@ -267,11 +267,11 @@ Implementing other EAP scenarios
 Implementing other setups like EAP-TLS requires additional development
 effort.
 
-`OpenWISP Controller <https://github.com/openwisp/openwisp-controller>`_
+`Immunity Controller <https://github.com/edge-servers/immunity-controller>`_
 already supports x509 certificates, so it would be
 a matter of integrating the
-`django-x509 <https://github.com/openwisp/django-x509>`_
-module into OpenWISP RADIUS and then implement mechanisms for the users
+`django-x509 <https://github.com/edge-servers/django-x509>`_
+module into Immunity RADIUS and then implement mechanisms for the users
 to securely download their certificates.
 
 If you're interested in this feature, let us know via the

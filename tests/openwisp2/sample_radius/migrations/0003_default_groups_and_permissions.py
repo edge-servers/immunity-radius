@@ -4,7 +4,7 @@ import django.db.models.deletion
 import swapper
 from django.db import migrations, models
 
-from openwisp_radius.migrations import (
+from immunity_radius.migrations import (
     add_default_group_to_existing_users,
     add_default_groups,
     add_default_organization,
@@ -18,12 +18,12 @@ class Migration(migrations.Migration):
     users to the default group
     """
 
-    rad_model = swapper.get_model_name('openwisp_radius', 'RadiusToken')
-    users_model = swapper.get_model_name('openwisp_users', 'Organization')
+    rad_model = swapper.get_model_name('immunity_radius', 'RadiusToken')
+    users_model = swapper.get_model_name('immunity_users', 'Organization')
     dependencies = [
-        swapper.dependency('openwisp_radius', 'RadiusToken'),
+        swapper.dependency('immunity_radius', 'RadiusToken'),
         swapper.dependency(
-            *swapper.split(rad_model), version='0002_initial_openwisp_app'
+            *swapper.split(rad_model), version='0002_initial_immunity_app'
         ),
         swapper.dependency(*swapper.split(users_model), version='0004_default_groups'),
     ]
@@ -46,7 +46,7 @@ class Migration(migrations.Migration):
             name='organization',
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
         ),
@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
             name='organization',
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
         ),
@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
             name='organization',
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
         ),
@@ -73,7 +73,7 @@ class Migration(migrations.Migration):
             name='organization',
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
         ),
@@ -82,7 +82,7 @@ class Migration(migrations.Migration):
             name='organization',
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.CASCADE,
-                to=swapper.get_model_name('openwisp_users', 'Organization'),
+                to=swapper.get_model_name('immunity_users', 'Organization'),
                 verbose_name='organization',
             ),
         ),

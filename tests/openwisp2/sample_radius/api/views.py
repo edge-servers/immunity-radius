@@ -1,26 +1,26 @@
-from openwisp_radius.api.freeradius_views import AccountingView as BaseAccountingView
-from openwisp_radius.api.freeradius_views import AuthorizeView as BaseAuthorizeView
-from openwisp_radius.api.freeradius_views import PostAuthView as BasePostAuthView
-from openwisp_radius.api.views import BatchView as BaseBatchView
-from openwisp_radius.api.views import ChangePhoneNumberView as BaseChangePhoneNumberView
-from openwisp_radius.api.views import CreatePhoneTokenView as BaseCreatePhoneTokenView
-from openwisp_radius.api.views import (
+from immunity_radius.api.freeradius_views import AccountingView as BaseAccountingView
+from immunity_radius.api.freeradius_views import AuthorizeView as BaseAuthorizeView
+from immunity_radius.api.freeradius_views import PostAuthView as BasePostAuthView
+from immunity_radius.api.views import BatchView as BaseBatchView
+from immunity_radius.api.views import ChangePhoneNumberView as BaseChangePhoneNumberView
+from immunity_radius.api.views import CreatePhoneTokenView as BaseCreatePhoneTokenView
+from immunity_radius.api.views import (
     DownloadRadiusBatchPdfView as BaseDownloadRadiusBatchPdfView,
 )
-from openwisp_radius.api.views import (
+from immunity_radius.api.views import (
     GetPhoneTokenStatusView as BaseGetPhoneTokenStatusView,
 )
-from openwisp_radius.api.views import ObtainAuthTokenView as BaseObtainAuthTokenView
-from openwisp_radius.api.views import PasswordChangeView as BasePasswordChangeView
-from openwisp_radius.api.views import (
+from immunity_radius.api.views import ObtainAuthTokenView as BaseObtainAuthTokenView
+from immunity_radius.api.views import PasswordChangeView as BasePasswordChangeView
+from immunity_radius.api.views import (
     PasswordResetConfirmView as BasePasswordResetConfirmView,
 )
-from openwisp_radius.api.views import PasswordResetView as BasePasswordResetView
-from openwisp_radius.api.views import RegisterView as BaseRegisterView
-from openwisp_radius.api.views import UserAccountingView as BaseUserAccountingView
-from openwisp_radius.api.views import UserRadiusUsageView as BaseUserRadiusUsageView
-from openwisp_radius.api.views import ValidateAuthTokenView as BaseValidateAuthTokenView
-from openwisp_radius.api.views import (
+from immunity_radius.api.views import PasswordResetView as BasePasswordResetView
+from immunity_radius.api.views import RegisterView as BaseRegisterView
+from immunity_radius.api.views import UserAccountingView as BaseUserAccountingView
+from immunity_radius.api.views import UserRadiusUsageView as BaseUserRadiusUsageView
+from immunity_radius.api.views import ValidateAuthTokenView as BaseValidateAuthTokenView
+from immunity_radius.api.views import (
     ValidatePhoneTokenView as BaseValidatePhoneTokenView,
 )
 

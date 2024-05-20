@@ -2,10 +2,10 @@
 Captive portal mock views
 =========================
 
-The development environment of openwisp-radius provides two URLs that mock
+The development environment of immunity-radius provides two URLs that mock
 the behavior of a captive portal, these URLs can be used when testing
 frontend applications like
-`openwisp-wifi-login-pages <https://github.com/openwisp/openwisp-wifi-login-pages>`_
+`immunity-wifi-login-pages <https://github.com/edge-servers/immunity-wifi-login-pages>`_
 during development.
 
 .. note::

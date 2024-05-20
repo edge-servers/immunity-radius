@@ -24,9 +24,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    # openwisp admin theme
-    'openwisp_utils.admin_theme',
-    'openwisp_users.accounts',
+    # immunity admin theme
+    'immunity_utils.admin_theme',
+    'immunity_users.accounts',
     # all-auth
     'django.contrib.sites',
     'allauth',
@@ -42,34 +42,34 @@ INSTALLED_APPS = [
     # social login
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
-    # openwisp radius
-    'openwisp_radius',
-    'openwisp_users',
+    # immunity radius
+    'immunity_radius',
+    'immunity_users',
     # admin
     'admin_auto_filters',
     'django.contrib.admin',
     'private_storage',
     'drf_yasg',
     'django_extensions',
-    'openwisp2.integrations',
+    'immunity2.integrations',
     'djangosaml2',
 ]
 
 LOGIN_REDIRECT_URL = 'admin:index'
 
 AUTHENTICATION_BACKENDS = (
-    'openwisp_users.backends.UsersAuthenticationBackend',
-    'openwisp_radius.saml.backends.OpenwispRadiusSaml2Backend',
+    'immunity_users.backends.UsersAuthenticationBackend',
+    'immunity_radius.saml.backends.ImmunityRadiusSaml2Backend',
     'sesame.backends.ModelBackend',
 )
 
-AUTH_USER_MODEL = 'openwisp_users.User'
+AUTH_USER_MODEL = 'immunity_users.User'
 SITE_ID = 1
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'openwisp_utils.staticfiles.DependencyFinder',
+    'immunity_utils.staticfiles.DependencyFinder',
 ]
 
 MIDDLEWARE = [
@@ -91,7 +91,7 @@ SAML_USE_NAME_ID_AS_USERNAME = True
 SAML_CREATE_UNKNOWN_USER = True
 SAML_CONFIG = {}
 
-ROOT_URLCONF = 'openwisp2.urls'
+ROOT_URLCONF = 'immunity2.urls'
 
 TEMPLATES = [
     {
@@ -100,7 +100,7 @@ TEMPLATES = [
         'OPTIONS': {
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
-                'openwisp_utils.loaders.DependencyLoader',
+                'immunity_utils.loaders.DependencyLoader',
                 'django.template.loaders.app_directories.Loader',
             ],
             'context_processors': [
@@ -108,7 +108,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'openwisp_utils.admin_theme.context_processor.menu_groups',
+                'immunity_utils.admin_theme.context_processor.menu_groups',
             ],
         },
     }
@@ -117,7 +117,7 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'openwisp_radius.db'),
+        'NAME': os.path.join(BASE_DIR, 'immunity_radius.db'),
     }
 }
 
@@ -158,7 +158,7 @@ if not TESTING:
             'level': 'INFO',
             'propagate': False,
         },
-        'openwisp_radius': {
+        'immunity_radius': {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': False,
@@ -230,46 +230,46 @@ else:
     CELERY_TASK_EAGER_PROPAGATES = True
     CELERY_BROKER_URL = 'memory://'
 
-TEST_RUNNER = 'openwisp_utils.tests.TimeLoggingTestRunner'
+TEST_RUNNER = 'immunity_utils.tests.TimeLoggingTestRunner'
 
 CELERY_BEAT_SCHEDULE = {
     'deactivate_expired_users': {
-        'task': 'openwisp_radius.tasks.cleanup_stale_radacct',
+        'task': 'immunity_radius.tasks.cleanup_stale_radacct',
         'schedule': crontab(hour=0, minute=0),
         'args': None,
         'relative': True,
     },
     'delete_old_radiusbatch_users': {
-        'task': 'openwisp_radius.tasks.delete_old_radiusbatch_users',
+        'task': 'immunity_radius.tasks.delete_old_radiusbatch_users',
         'schedule': crontab(hour=0, minute=10),
         'args': [365],
         'relative': True,
     },
     'cleanup_stale_radacct': {
-        'task': 'openwisp_radius.tasks.cleanup_stale_radacct',
+        'task': 'immunity_radius.tasks.cleanup_stale_radacct',
         'schedule': crontab(hour=0, minute=20),
         'args': [365],
         'relative': True,
     },
     'delete_old_postauth': {
-        'task': 'openwisp_radius.tasks.delete_old_postauth',
+        'task': 'immunity_radius.tasks.delete_old_postauth',
         'schedule': crontab(hour=0, minute=30),
         'args': [365],
         'relative': True,
     },
     'delete_old_radacct': {
-        'task': 'openwisp_radius.tasks.delete_old_radacct',
+        'task': 'immunity_radius.tasks.delete_old_radacct',
         'schedule': crontab(hour=0, minute=40),
         'args': [365],
         'relative': True,
     },
     'unverify_inactive_users': {
-        'task': 'openwisp_radius.tasks.unverify_inactive_users',
+        'task': 'immunity_radius.tasks.unverify_inactive_users',
         'schedule': crontab(hour=1, minute=30),
         'relative': True,
     },
     'delete_inactive_users': {
-        'task': 'openwisp_radius.tasks.delete_inactive_users',
+        'task': 'immunity_radius.tasks.delete_inactive_users',
         'schedule': crontab(hour=1, minute=50),
         'relative': True,
     },
@@ -280,8 +280,8 @@ OPENWISP_RADIUS_EXTRA_NAS_TYPES = (('cisco', 'Cisco Router'),)
 
 REST_AUTH = {
     'SESSION_LOGIN': False,
-    'PASSWORD_RESET_SERIALIZER': 'openwisp_radius.api.serializers.PasswordResetSerializer',
-    'REGISTER_SERIALIZER': 'openwisp_radius.api.serializers.RegisterSerializer',
+    'PASSWORD_RESET_SERIALIZER': 'immunity_radius.api.serializers.PasswordResetSerializer',
+    'REGISTER_SERIALIZER': 'immunity_radius.api.serializers.RegisterSerializer',
 }
 
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'email_confirmation_success'
@@ -305,11 +305,11 @@ else:
 OPENWISP_USERS_AUTH_API = True
 
 if os.environ.get('SAMPLE_APP', False):
-    INSTALLED_APPS.remove('openwisp_radius')
-    INSTALLED_APPS.remove('openwisp_users')
-    INSTALLED_APPS.append('openwisp2.sample_radius')
-    INSTALLED_APPS.append('openwisp2.sample_users')
-    EXTENDED_APPS = ('openwisp_radius', 'openwisp_users')
+    INSTALLED_APPS.remove('immunity_radius')
+    INSTALLED_APPS.remove('immunity_users')
+    INSTALLED_APPS.append('immunity2.sample_radius')
+    INSTALLED_APPS.append('immunity2.sample_users')
+    EXTENDED_APPS = ('immunity_radius', 'immunity_users')
     AUTH_USER_MODEL = 'sample_users.User'
     OPENWISP_USERS_GROUP_MODEL = 'sample_users.Group'
     OPENWISP_USERS_ORGANIZATION_MODEL = 'sample_users.Organization'
@@ -335,10 +335,10 @@ if os.environ.get('SAMPLE_APP', False):
     )
     # Rename sample_app database
     DATABASES['default']['NAME'] = os.path.join(BASE_DIR, 'sample_radius.db')
-    CELERY_IMPORTS = ('openwisp_radius.tasks',)
+    CELERY_IMPORTS = ('immunity_radius.tasks',)
 
 if os.environ.get('SAMPLE_APP', False) and TESTING:
-    # Required for openwisp-users tests
+    # Required for immunity-users tests
     OPENWISP_ORGANIZATION_USER_ADMIN = True
     OPENWISP_ORGANIZATION_OWNER_ADMIN = True
     OPENWISP_USERS_AUTH_API = True

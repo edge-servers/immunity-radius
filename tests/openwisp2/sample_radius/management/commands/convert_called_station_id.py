@@ -1,4 +1,4 @@
-from openwisp_radius.management.commands.base.convert_called_station_id import (
+from immunity_radius.management.commands.base.convert_called_station_id import (
     BaseConvertCalledStationIdCommand,
 )
 

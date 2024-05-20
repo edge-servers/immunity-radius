@@ -11,7 +11,7 @@ Social Login
     In order to enable this feature you have to follow
     the :ref:`setup instructions <setup_social_login>` below
     and then activate it via :ref:`global setting or from the admin interface
-    <openwisp_radius_social_registration_enabled>`.
+    <immunity_radius_social_registration_enabled>`.
 
 Social login is supported by generating an additional temporary token right
 after users perform the social sign-in, the user is then redirected to the
@@ -21,7 +21,7 @@ The captive page must recognize these two parameters and automatically perform
 the submit action of the login form: ``username`` should obviously used for the
 username field, while ``token`` should be used for the password field.
 
-The internal REST API of openwisp-radius will recognize the token and authorize
+The internal REST API of immunity-radius will recognize the token and authorize
 the user.
 
 This kind of implementation allows to implement the social login with any captive
@@ -31,8 +31,8 @@ a social network.
 
 .. note::
    If you're building a public wifi service, we suggest
-   to take a look at `openwisp-wifi-login-pages <https://github.com/openwisp/openwisp-wifi-login-pages>`_,
-   which is built to work with openwisp-radius.
+   to take a look at `immunity-wifi-login-pages <https://github.com/edge-servers/immunity-wifi-login-pages>`_,
+   which is built to work with immunity-radius.
 
 .. _setup_social_login:
 
@@ -112,16 +112,16 @@ the right organization:
 
 .. code-block:: html
 
-    <a href="https://openwisp2.mywifiproject.com/accounts/facebook/login/?next=%2Fradius%2Fsocial-login%2Fdefault%2F%3Fcp%3Dhttps%3A%2F%2Fcaptivepage.mywifiproject.com%2F%26last%3D"
+    <a href="https://immunity2.mywifiproject.com/accounts/facebook/login/?next=%2Fradius%2Fsocial-login%2Fdefault%2F%3Fcp%3Dhttps%3A%2F%2Fcaptivepage.mywifiproject.com%2F%26last%3D"
        class="button">Log in with Facebook
     </a>
 
-Substitute ``openwisp2.mywifiproject.com``, ``captivepage.mywifiproject.com``
-and ``default`` with the hostname of your openwisp-radius instance, your captive
+Substitute ``immunity2.mywifiproject.com``, ``captivepage.mywifiproject.com``
+and ``default`` with the hostname of your immunity-radius instance, your captive
 page and the organization slug respectively.
 
 Alternatively, you can take a look at
-`openwisp-wifi-login-pages <https://github.com/openwisp/openwisp-wifi-login-pages>`_,
+`immunity-wifi-login-pages <https://github.com/edge-servers/immunity-wifi-login-pages>`_,
 which provides buttons for Facebook, Google and Twitter by default.
 
 Settings

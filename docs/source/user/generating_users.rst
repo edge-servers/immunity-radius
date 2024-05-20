@@ -32,7 +32,7 @@ Using the admin interface
 
 To generate users from the admin interface, go to
 ``Home > Batch user creation operations > Add``
-(URL: ``/admin/openwisp_radius/radiusbatch/add``),
+(URL: ``/admin/immunity_radius/radiusbatch/add``),
 set ``Strategy`` to ``Generate from prefix``, fill in the remaining fields
 that are shown after the selection of the strategy and save.
 

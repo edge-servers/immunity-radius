@@ -1,4 +1,4 @@
-from openwisp_radius.management.commands.base.cleanup_stale_radacct import (
+from immunity_radius.management.commands.base.cleanup_stale_radacct import (
     BaseCleanupRadacctCommand,
 )
 

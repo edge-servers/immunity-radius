@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 
-from openwisp_radius.urls import get_urls
+from immunity_radius.urls import get_urls
 
 from . import views
 
@@ -25,13 +25,13 @@ else:
     api_views = None
     social_views = None
     saml_views = None
-    radius_urls = path('', include('openwisp_radius.urls'))
+    radius_urls = path('', include('immunity_radius.urls'))
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('openwisp_utils.api.urls')),
-    path('api/v1/', include('openwisp_users.api.urls')),
-    path('accounts/', include('openwisp_users.accounts.urls')),
+    path('api/v1/', include('immunity_utils.api.urls')),
+    path('api/v1/', include('immunity_users.api.urls')),
+    path('accounts/', include('immunity_users.accounts.urls')),
     radius_urls,
     path(
         'captive-portal-mock/login/',

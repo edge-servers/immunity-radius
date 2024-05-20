@@ -1,66 +1,66 @@
-from openwisp_radius.tests.test_admin import TestAdmin as BaseTestAdmin
-from openwisp_radius.tests.test_api.test_api import TestApi as BaseTestApi
-from openwisp_radius.tests.test_api.test_freeradius_api import (
+from immunity_radius.tests.test_admin import TestAdmin as BaseTestAdmin
+from immunity_radius.tests.test_api.test_api import TestApi as BaseTestApi
+from immunity_radius.tests.test_api.test_freeradius_api import (
     TestApiReject as BaseTestApiReject,
 )
-from openwisp_radius.tests.test_api.test_freeradius_api import (
+from immunity_radius.tests.test_api.test_freeradius_api import (
     TestAutoGroupname as BaseTestAutoGroupname,
 )
-from openwisp_radius.tests.test_api.test_freeradius_api import (
+from immunity_radius.tests.test_api.test_freeradius_api import (
     TestAutoGroupnameDisabled as BaseTestAutoGroupnameDisabled,
 )
-from openwisp_radius.tests.test_api.test_freeradius_api import (
+from immunity_radius.tests.test_api.test_freeradius_api import (
     TestFreeradiusApi as BaseTestFreeradiusApi,
 )
-from openwisp_radius.tests.test_api.test_freeradius_api import (
+from immunity_radius.tests.test_api.test_freeradius_api import (
     TestOgranizationRadiusSettings as BaseTestOgranizationRadiusSettings,
 )
-from openwisp_radius.tests.test_api.test_phone_verification import (
+from immunity_radius.tests.test_api.test_phone_verification import (
     TestIsSmsVerificationEnabled as BaseTestIsSmsVerificationEnabled,
 )
-from openwisp_radius.tests.test_api.test_phone_verification import (
+from immunity_radius.tests.test_api.test_phone_verification import (
     TestPhoneVerification as BaseTestPhoneVerification,
 )
-from openwisp_radius.tests.test_api.test_rest_token import (
+from immunity_radius.tests.test_api.test_rest_token import (
     TestApiUserToken as BaseTestApiUserToken,
 )
-from openwisp_radius.tests.test_api.test_rest_token import (
+from immunity_radius.tests.test_api.test_rest_token import (
     TestApiValidateToken as BaseTestApiValidateToken,
 )
-from openwisp_radius.tests.test_batch_add_users import (
+from immunity_radius.tests.test_batch_add_users import (
     TestCSVUpload as BaseTestCSVUpload,
 )
-from openwisp_radius.tests.test_commands import TestCommands as BaseTestCommands
-from openwisp_radius.tests.test_models import TestNas as BaseTestNas
-from openwisp_radius.tests.test_models import (
+from immunity_radius.tests.test_commands import TestCommands as BaseTestCommands
+from immunity_radius.tests.test_models import TestNas as BaseTestNas
+from immunity_radius.tests.test_models import (
     TestPrivateCsvFile as BaseTestPrivateCsvFile,
 )
-from openwisp_radius.tests.test_models import (
+from immunity_radius.tests.test_models import (
     TestRadiusAccounting as BaseTestRadiusAccounting,
 )
-from openwisp_radius.tests.test_models import TestRadiusBatch as BaseTestRadiusBatch
-from openwisp_radius.tests.test_models import TestRadiusCheck as BaseTestRadiusCheck
-from openwisp_radius.tests.test_models import TestRadiusGroup as BaseTestRadiusGroup
-from openwisp_radius.tests.test_models import (
+from immunity_radius.tests.test_models import TestRadiusBatch as BaseTestRadiusBatch
+from immunity_radius.tests.test_models import TestRadiusCheck as BaseTestRadiusCheck
+from immunity_radius.tests.test_models import TestRadiusGroup as BaseTestRadiusGroup
+from immunity_radius.tests.test_models import (
     TestRadiusPostAuth as BaseTestRadiusPostAuth,
 )
-from openwisp_radius.tests.test_models import TestRadiusReply as BaseTestRadiusReply
-from openwisp_radius.tests.test_saml.test_views import (
+from immunity_radius.tests.test_models import TestRadiusReply as BaseTestRadiusReply
+from immunity_radius.tests.test_saml.test_views import (
     TestAssertionConsumerServiceView as BaseTestAssertionConsumerServiceView,
 )
-from openwisp_radius.tests.test_saml.test_views import (
+from immunity_radius.tests.test_saml.test_views import (
     TestLoginView as BaseTestLoginView,
 )
-from openwisp_radius.tests.test_social import TestSocial as BaseTestSocial
-from openwisp_radius.tests.test_token import TestPhoneToken as BaseTestPhoneToken
-from openwisp_radius.tests.test_token import TestRadiusToken as BaseTestRadiusToken
-from openwisp_radius.tests.test_upgrader_script import (
+from immunity_radius.tests.test_social import TestSocial as BaseTestSocial
+from immunity_radius.tests.test_token import TestPhoneToken as BaseTestPhoneToken
+from immunity_radius.tests.test_token import TestRadiusToken as BaseTestRadiusToken
+from immunity_radius.tests.test_upgrader_script import (
     TestUpgradeFromDjangoFreeradius as BaseTestUpgradeFromDjangoFreeradius,
 )
-from openwisp_radius.tests.test_users_integration import (
+from immunity_radius.tests.test_users_integration import (
     TestUsersIntegration as BaseTestUsersIntegration,
 )
-from openwisp_radius.tests.test_utils import TestUtils as BaseTestUtils
+from immunity_radius.tests.test_utils import TestUtils as BaseTestUtils
 
 additional_fields = [
     ('social_security_number', '123-45-6789'),

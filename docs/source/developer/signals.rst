@@ -5,7 +5,7 @@ Signals
 ``radius_accounting_success``
 -----------------------------
 
-**Path**: ``openwisp_radius.signals.radius_accounting_success``
+**Path**: ``immunity_radius.signals.radius_accounting_success``
 
 **Arguments**:
 

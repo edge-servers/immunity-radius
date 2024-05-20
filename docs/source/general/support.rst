@@ -4,8 +4,8 @@
 Support
 =======
 
-The OpenWISP community is very active and offers best effort support through the official
-`OpenWISP Support Channels <https://openwisp.org/support.html>`_.
+The Immunity community is very active and offers best effort support through the official
+`Immunity Support Channels <https://immunity.org/support.html>`_.
 
 .. raw:: html
 

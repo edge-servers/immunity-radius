@@ -14,7 +14,7 @@ Example usage:
     cd tests/
     ./manage.py <command> <args>
 
-In this page we list the management commands currently available in **openwisp-radius**.
+In this page we list the management commands currently available in **immunity-radius**.
 
 ``delete_old_radacct``
 ----------------------
@@ -112,9 +112,9 @@ You can specify multiple methods separated by comma(`,`). Following is an exampl
 ``upgrade_from_django_freeradius``
 ----------------------------------
 
-If you are upgrading from `django-freeradius <https://github.com/openwisp/django-freeradius>`_
-to openwisp-radius, there is an easy migration script that will import your freeradius
-database, sites, social website account users, users & groups to openwisp-radius instance::
+If you are upgrading from `django-freeradius <https://github.com/edge-servers/django-freeradius>`_
+to immunity-radius, there is an easy migration script that will import your freeradius
+database, sites, social website account users, users & groups to immunity-radius instance::
 
     ./manage.py upgrade_from_django_freeradius
 
@@ -131,7 +131,7 @@ by default the data is added to the first found organization, eg::
     ./manage.py upgrade_from_django_freeradius --organization 900856da-c89a-412d-8fee-45a9c763ca0b
 
 .. note::
-    You can follow the `tutorial to migrate database from django-freeradius <https://github.com/openwisp/django-freeradius/blob/master/README.rst>`_.
+    You can follow the `tutorial to migrate database from django-freeradius <https://github.com/edge-servers/django-freeradius/blob/master/README.rst>`_.
 
 .. warning::
     It is not possible to export user credential data for radiusbatch created using prefix, please manually preserve the PDF files if you want to access the data in the future.
@@ -150,10 +150,10 @@ which can be installed using the following command
 
 .. code-block:: shell
 
-    pip install openwisp-radius[openvpn_status]
+    pip install immunity-radius[openvpn_status]
 
 In order to work, this command requires to be configured via the
-:ref:`OPENWISP_RADIUS_CALLED_STATION_IDS <openwisp_radius_called_station_ids>` setting.
+:ref:`OPENWISP_RADIUS_CALLED_STATION_IDS <immunity_radius_called_station_ids>` setting.
 
 Use the following command if you want to perform this operation for all
 RADIUS sessions that meet criteria of ``OPENWISP_RADIUS_CALLED_STATION_IDS``
@@ -173,7 +173,7 @@ replacing session's ``unique_id`` in the following command:
 .. note::
 
     If you encounter ``ParseError`` for datetime data, you can set the datetime format
-    of the parser using :ref:`OPENWISP_RADIUS_OPENVPN_DATETIME_FORMAT <openwisp_radius_openvpn_datetime_format>`
+    of the parser using :ref:`OPENWISP_RADIUS_OPENVPN_DATETIME_FORMAT <immunity_radius_openvpn_datetime_format>`
     setting.
 
 .. note::

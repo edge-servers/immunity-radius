@@ -7,8 +7,8 @@ API Documentation
    :depth: 4
 
 .. important::
-    The REST API of openwisp-radius is enabled by default and may be turned off by
-    setting :ref:`OPENWISP_RADIUS_API <openwisp_radius_api>` to ``False``.
+    The REST API of immunity-radius is enabled by default and may be turned off by
+    setting :ref:`OPENWISP_RADIUS_API <immunity_radius_api>` to ``False``.
 
 Live documentation
 ******************
@@ -37,7 +37,7 @@ to be consumed by FreeRADIUS (:ref:`Authorize <authorize>`, :ref:`Post Auth <pos
 .. important::
     These endpoints can be consumed only by hosts which have
     been added to the :ref:`freeradius allowed hosts list
-    <openwisp_radius_freeradius_allowed_hosts>`.
+    <immunity_radius_freeradius_allowed_hosts>`.
 
 .. _freeradius_api_authentication:
 
@@ -75,14 +75,14 @@ The flow works as follows:
          -d "auth_user=<username>&auth_pass=<radius_token>"
 
 This method is recommended if you are using multiple organizations
-in the same OpenWISP instance.
+in the same Immunity instance.
 
 .. note::
     By default, ``<radius_token>`` is valid for authentication for one
     request only and a new ``<radius_token>`` needs to be `obtained for
     each request <#login-obtain-user-auth-token>`_.
     However, if `OPENWISP_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN
-    <./settings.html#openwisp-radius-disposable-radius-user-token>`_
+    <./settings.html#immunity-radius-disposable-radius-user-token>`_
     is set to ``False``, the ``<radius_token>`` is valid for authentication
     as long as freeradius accounting ``Stop`` request is not sent
     or the token is not deleted.
@@ -140,9 +140,9 @@ used for testing and debugging only
 Organization UUID & RADIUS API Token
 ------------------------------------
 
-You can get (and set) the value of the OpenWISP RADIUS API token in the
-organization configuration page on the OpenWISP dashboard
-(select your organization in ``/admin/openwisp_users/organization/``):
+You can get (and set) the value of the Immunity RADIUS API token in the
+organization configuration page on the Immunity dashboard
+(select your organization in ``/admin/immunity_users/organization/``):
 
 .. image:: /images/token.png
    :alt: Organization Radius Token
@@ -153,7 +153,7 @@ organization configuration page on the OpenWISP dashboard
     Eg: ``165f9a790787fc38e5cc12c1640db2300648d9a2``.
 
 You will also need the UUID of your organization from the organization change page
-(select your organization in ``/admin/openwisp_users/organization/``):
+(select your organization in ``/admin/immunity_users/organization/``):
 
 .. image:: /images/org_uuid.png
    :alt: Organization UUID
@@ -237,7 +237,7 @@ related to the group with highest priority assigned to the user.
 
 If the authorization is unsuccessful, the response body can either be empty
 or it can contain an explicit rejection, depending on how the
-:ref:`OPENWISP_RADIUS_API_AUTHORIZE_REJECT <openwisp_radius_api_authorize_reject>`
+:ref:`OPENWISP_RADIUS_API_AUTHORIZE_REJECT <immunity_radius_api_authorize_reject>`
 setting is configured.
 
 .. _post_auth:
@@ -423,7 +423,7 @@ User Registration
 
     This endpoint is enabled by default but can be disabled either
     via a :ref:`global setting or from the admin interface
-    <openwisp_radius_registration_api_enabled>`.
+    <immunity_radius_registration_api_enabled>`.
 
 .. code-block:: text
 
@@ -450,14 +450,14 @@ method             string (\*\*\*)
 
 (\*) ``phone_number`` is required only when the organization has enabled
 :ref:`SMS verification in its "Organization RADIUS Settings"
-<openwisp_radius_sms_verification_enabled>`.
+<immunity_radius_sms_verification_enabled>`.
 
 (\*\*) ``first_name``, ``last_name``, ``birth_date`` and ``location``
 are optional fields which are disabled by default to make the registration
-simple, but can be :ref:`enabled through configuration <openwisp_radius_optional_registration_fields>`.
+simple, but can be :ref:`enabled through configuration <immunity_radius_optional_registration_fields>`.
 
 (\*\*) ``method`` must be one of the available
-:ref:`registration/verification methods <openwisp_radius_needs_identity_verification>`;
+:ref:`registration/verification methods <immunity_radius_needs_identity_verification>`;
 if identity verification is disabled for a particular org, an empty string
 will be acceptable.
 
@@ -484,7 +484,7 @@ registered to the system which may be shown to the user in the UI. E.g.:
 The existing user can register with a new organization using the
 :ref:`login endpoint <login_obtain_user_auth_token>`. The user will also get
 membership of the new organization only if the organization has
-:ref:`user registration enabled <openwisp_radius_registration_api_enabled>`.
+:ref:`user registration enabled <immunity_radius_registration_api_enabled>`.
 
 .. _reset_password:
 
@@ -680,7 +680,7 @@ Create SMS token
 
 .. note::
   This API endpoint will work only if the organization has enabled
-  :ref:`SMS verification <openwisp_radius_sms_verification_enabled>`.
+  :ref:`SMS verification <immunity_radius_sms_verification_enabled>`.
 
 **Requires the user auth token (Bearer Token)**.
 
@@ -699,7 +699,7 @@ Get active SMS token status
 
 .. note::
   This API endpoint will work only if the organization has enabled
-  :ref:`SMS verification <openwisp_radius_sms_verification_enabled>`.
+  :ref:`SMS verification <immunity_radius_sms_verification_enabled>`.
 
 **Requires the user auth token (Bearer Token)**.
 
@@ -721,7 +721,7 @@ Verify/Validate SMS token
 
 .. note::
   This API endpoint will work only if the organization has enabled
-  :ref:`SMS verification <openwisp_radius_sms_verification_enabled>`.
+  :ref:`SMS verification <immunity_radius_sms_verification_enabled>`.
 
 **Requires the user auth token (Bearer Token)**.
 
@@ -746,7 +746,7 @@ Change phone number
 
 .. note::
   This API endpoint will work only if the organization has enabled
-  :ref:`SMS verification <openwisp_radius_sms_verification_enabled>`.
+  :ref:`SMS verification <immunity_radius_sms_verification_enabled>`.
 
 **Requires the user auth token (Bearer Token)**.
 

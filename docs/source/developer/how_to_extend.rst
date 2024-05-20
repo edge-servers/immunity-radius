@@ -1,25 +1,25 @@
 =========================
-Extending openwisp-radius
+Extending immunity-radius
 =========================
 
-One of the core values of the OpenWISP project is `Software Reusability <http://openwisp.io/docs/general/values.html#software-reusability-means-long-term-sustainability>`_,
-for this reason *openwisp-radius* provides a set of base classes
+One of the core values of the Immunity project is `Software Reusability <http://immunity.io/docs/general/values.html#software-reusability-means-long-term-sustainability>`_,
+for this reason *immunity-radius* provides a set of base classes
 which can be imported, extended and reused to create derivative apps.
 
-In order to implement your custom version of *openwisp-radius*,
+In order to implement your custom version of *immunity-radius*,
 you need to perform the steps described in this section.
 
-When in doubt, the code in the `test project <https://github.com/openwisp/openwisp-radius/tree/master/tests/openwisp2/>`_ and
-the `sample app <https://github.com/openwisp/openwisp-radius/tree/master/tests/openwisp2/sample_radius/>`_
+When in doubt, the code in the `test project <https://github.com/edge-servers/immunity-radius/tree/master/tests/immunity2/>`_ and
+the `sample app <https://github.com/edge-servers/immunity-radius/tree/master/tests/immunity2/sample_radius/>`_
 will serve you as source of truth:
 just replicate and adapt that code to get a basic derivative of
-*openwisp-radius* working.
+*immunity-radius* working.
 
 If you want to add new users fields, please follow the `tutorial to extend the
-openwisp-users <https://github.com/openwisp/openwisp-users/#extend-openwisp-users>`_.
-As an example, we have extended *openwisp-users* to *sample_users* app and
+immunity-users <https://github.com/edge-servers/immunity-users/#extend-immunity-users>`_.
+As an example, we have extended *immunity-users* to *sample_users* app and
 added a field ``social_security_number`` in the `sample_users/models.py
-<https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_users/models.py>`_.
+<https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_users/models.py>`_.
 
 .. note::
     **Premise**: if you plan on using a customized version of this module,
@@ -30,7 +30,7 @@ added a field ``social_security_number`` in the `sample_users/models.py
 --------------------------------
 
 The first thing you need to do is to create a new django app which will
-contain your custom version of *openwisp-radius*.
+contain your custom version of *immunity-radius*.
 
 A django app is nothing more than a
 `python package <https://docs.python.org/3/tutorial/modules.html#packages>`_
@@ -44,7 +44,7 @@ which is available in your `PYTHON_PATH <https://docs.python.org/3/using/cmdline
 so that you can then import the result into your project.
 
 Now you need to add ``myradius`` to ``INSTALLED_APPS`` in your ``settings.py``,
-ensuring also that ``openwisp_radius`` has been removed:
+ensuring also that ``immunity_radius`` has been removed:
 
 .. code-block:: python
 
@@ -52,8 +52,8 @@ ensuring also that ``openwisp_radius`` has been removed:
 
     INSTALLED_APPS = [
         # ... other apps ...
-        # openwisp admin theme
-        'openwisp_utils.admin_theme',
+        # immunity admin theme
+        'immunity_utils.admin_theme',
         # all-auth
         'django.contrib.sites',
         'allauth',
@@ -73,9 +73,9 @@ ensuring also that ``openwisp_radius`` has been removed:
         'allauth.socialaccount.providers.google',  # optional, can be removed if social login is not needed
         # SAML login
         'djangosaml2',  # optional, can be removed if SAML login is not needed
-        # openwisp
+        # immunity
         # 'myradius', <-- replace with your app-name here
-        'openwisp_users',
+        'immunity_users',
         'private_storage',
         'drf_yasg'
     ]
@@ -85,8 +85,8 @@ ensuring also that ``openwisp_radius`` has been removed:
     PRIVATE_STORAGE_ROOT = os.path.join(MEDIA_ROOT, 'private')
 
     AUTHENTICATION_BACKENDS = (
-        'openwisp_users.backends.UsersAuthenticationBackend',
-        'openwisp_radius.saml.backends.OpenwispRadiusSaml2Backend', # optional, can be removed if SAML login is not needed
+        'immunity_users.backends.UsersAuthenticationBackend',
+        'immunity_radius.saml.backends.ImmunityRadiusSaml2Backend', # optional, can be removed if SAML login is not needed
     )
 
 .. important::
@@ -96,15 +96,15 @@ ensuring also that ``openwisp_radius`` has been removed:
     For more information about how to work with django projects and django apps, please refer
     to the `django documentation <https://docs.djangoproject.com/en/dev/intro/tutorial01/>`_.
 
-2. Install ``openwisp-radius``
+2. Install ``immunity-radius``
 ------------------------------
 
-Install (and add to the requirement of your project) openwisp-radius::
+Install (and add to the requirement of your project) immunity-radius::
 
-    pip install openwisp-radius
+    pip install immunity-radius
 
 .. note::
-    Use ``pip install openwisp-radius[saml]`` if you intend to use
+    Use ``pip install immunity-radius[saml]`` if you intend to use
     :ref:`Single Sign-On (SAML) <saml_>` feature.
 
 3. Add ``EXTENDED_APPS``
@@ -114,12 +114,12 @@ Add the following to your ``settings.py``:
 
 .. code-block:: python
 
-    EXTENDED_APPS = ('openwisp_radius',)
+    EXTENDED_APPS = ('immunity_radius',)
 
-4. Add ``openwisp_utils.staticfiles.DependencyFinder``
+4. Add ``immunity_utils.staticfiles.DependencyFinder``
 ------------------------------------------------------
 
-Add ``openwisp_utils.staticfiles.DependencyFinder`` to
+Add ``immunity_utils.staticfiles.DependencyFinder`` to
 ``STATICFILES_FINDERS`` in your ``settings.py``:
 
 .. code-block:: python
@@ -127,13 +127,13 @@ Add ``openwisp_utils.staticfiles.DependencyFinder`` to
     STATICFILES_FINDERS = [
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        'openwisp_utils.staticfiles.DependencyFinder',
+        'immunity_utils.staticfiles.DependencyFinder',
     ]
 
-5. Add ``openwisp_utils.loaders.DependencyLoader``
+5. Add ``immunity_utils.loaders.DependencyLoader``
 --------------------------------------------------
 
-Add ``openwisp_utils.loaders.DependencyLoader`` to ``TEMPLATES``
+Add ``immunity_utils.loaders.DependencyLoader`` to ``TEMPLATES``
 in your ``settings.py``, but ensure it comes before
 ``django.template.loaders.app_directories.Loader``:
 
@@ -145,7 +145,7 @@ in your ``settings.py``, but ensure it comes before
             'OPTIONS': {
                 'loaders': [
                     'django.template.loaders.filesystem.Loader',
-                    'openwisp_utils.loaders.DependencyLoader',
+                    'immunity_utils.loaders.DependencyLoader',
                     'django.template.loaders.app_directories.Loader',
                 ],
                 'context_processors': [
@@ -163,8 +163,8 @@ in your ``settings.py``, but ensure it comes before
 
 Please refer to the following files in the sample app of the test project:
 
-- `sample_radius/__init__.py <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/__init__.py>`_
-- `sample_radius/apps.py <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/apps.py>`_
+- `sample_radius/__init__.py <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/__init__.py>`_
+- `sample_radius/apps.py <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/apps.py>`_
 
 You have to replicate and adapt that code in your project.
 
@@ -176,7 +176,7 @@ You have to replicate and adapt that code in your project.
 ----------------------------
 
 For the purpose of showing an example, we added a simple ``details`` field to the
-`models of the sample app in the test project <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/models.py>`_.
+`models of the sample app in the test project <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/models.py>`_.
 
 You can add fields in a similar way in your ``models.py`` file.
 
@@ -207,15 +207,15 @@ Once you have created the models, add the following to your ``settings.py``:
     OPENWISP_RADIUS_ORGANIZATIONRADIUSSETTINGS_MODEL = 'myradius.OrganizationRadiusSettings'
     OPENWISP_RADIUS_REGISTEREDUSER_MODEL = 'myradius.RegisteredUser'
 
-    # You will need to change AUTH_USER_MODEL if you are extending openwisp_users
-    AUTH_USER_MODEL = 'openwisp_users.User'
+    # You will need to change AUTH_USER_MODEL if you are extending immunity_users
+    AUTH_USER_MODEL = 'immunity_users.User'
 
 Substitute ``myradius`` with the name you chose in step 1.
 
 9. Create database migrations
 -----------------------------
 
-Copy the `migration files from the sample_radius's migration folder <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/migrations/>`_.
+Copy the `migration files from the sample_radius's migration folder <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/migrations/>`_.
 
 
 Now, create database migrations as per your custom application's requirements::
@@ -235,7 +235,7 @@ However, if you want :ref:`migrate an existing freeradius database please read t
 10. Create the admin
 --------------------
 
-Refer to the `admin.py file of the sample app <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/admin.py>`_.
+Refer to the `admin.py file of the sample app <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/admin.py>`_.
 
 To introduce changes to the admin, you can do it in two main ways which are described below.
 
@@ -252,7 +252,7 @@ For example:
 
 .. code-block:: python
 
-    from openwisp_radius.admin import (
+    from immunity_radius.admin import (
         RadiusCheckAdmin,
         RadiusReplyAdmin,
         RadiusAccountingAdmin,
@@ -275,7 +275,7 @@ monkey patching, you can proceed as follows:
 .. code-block:: python
 
     from django.contrib import admin
-    from openwisp_radius.admin import (
+    from immunity_radius.admin import (
         RadiusCheckAdmin as BaseRadiusCheckAdmin,
         RadiusReplyAdmin as BaseRadiusReplyAdmin,
         RadiusAccountingAdmin as BaseRadiusAccountingAdmin,
@@ -288,18 +288,18 @@ monkey patching, you can proceed as follows:
         RadiusBatchAdmin as BaseRadiusBatchAdmin,
     )
     from swapper import load_model
-    Nas = load_model('openwisp_radius', 'Nas')
-    RadiusAccounting = load_model('openwisp_radius', 'RadiusAccounting')
-    RadiusBatch = load_model('openwisp_radius', 'RadiusBatch')
-    RadiusCheck = load_model('openwisp_radius', 'RadiusCheck')
-    RadiusGroup = load_model('openwisp_radius', 'RadiusGroup')
-    RadiusPostAuth = load_model('openwisp_radius', 'RadiusPostAuth')
-    RadiusReply = load_model('openwisp_radius', 'RadiusReply')
-    PhoneToken = load_model('openwisp_radius', 'PhoneToken')
-    RadiusGroupCheck = load_model('openwisp_radius', 'RadiusGroupCheck')
-    RadiusGroupReply = load_model('openwisp_radius', 'RadiusGroupReply')
-    RadiusUserGroup = load_model('openwisp_radius', 'RadiusUserGroup')
-    OrganizationRadiusSettings = load_model('openwisp_radius', 'OrganizationRadiusSettings')
+    Nas = load_model('immunity_radius', 'Nas')
+    RadiusAccounting = load_model('immunity_radius', 'RadiusAccounting')
+    RadiusBatch = load_model('immunity_radius', 'RadiusBatch')
+    RadiusCheck = load_model('immunity_radius', 'RadiusCheck')
+    RadiusGroup = load_model('immunity_radius', 'RadiusGroup')
+    RadiusPostAuth = load_model('immunity_radius', 'RadiusPostAuth')
+    RadiusReply = load_model('immunity_radius', 'RadiusReply')
+    PhoneToken = load_model('immunity_radius', 'PhoneToken')
+    RadiusGroupCheck = load_model('immunity_radius', 'RadiusGroupCheck')
+    RadiusGroupReply = load_model('immunity_radius', 'RadiusGroupReply')
+    RadiusUserGroup = load_model('immunity_radius', 'RadiusUserGroup')
+    OrganizationRadiusSettings = load_model('immunity_radius', 'OrganizationRadiusSettings')
     User = get_user_model()
 
     admin.site.unregister(RadiusCheck)
@@ -364,7 +364,7 @@ Add allowed freeradius hosts  in ``settings.py``:
 
 .. note::
     Read more about :ref:`freeradius allowed hosts in settings page
-    <openwisp_radius_freeradius_allowed_hosts>`.
+    <immunity_radius_freeradius_allowed_hosts>`.
 
 12. Setup Periodic tasks
 ------------------------
@@ -372,16 +372,16 @@ Add allowed freeradius hosts  in ``settings.py``:
 Some periodic commands are required in production environments to enable certain
 features and facilitate database cleanup:
 
-1. You need to create a `celery configuration file as it's created in example file <https://github.com/openwisp/openwisp-radius/tree/master/tests/openwisp2/celery.py>`_.
+1. You need to create a `celery configuration file as it's created in example file <https://github.com/edge-servers/immunity-radius/tree/master/tests/immunity2/celery.py>`_.
 
-2. In the settings.py, `configure the CELERY_BEAT_SCHEDULE <https://github.com/openwisp/openwisp-radius/tree/master/tests/openwisp2/settings.py#L141>`_. Some celery tasks take an argument, for instance
+2. In the settings.py, `configure the CELERY_BEAT_SCHEDULE <https://github.com/edge-servers/immunity-radius/tree/master/tests/immunity2/settings.py#L141>`_. Some celery tasks take an argument, for instance
 ``365`` is given here for ``delete_old_radacct`` in the example settings.
 These arguments are passed to their respective management commands. More information about these parameters can be
 found at the :ref:`management commands page <management_commands>`.
 
 3. Add the following in your settings.py file::
 
-    CELERY_IMPORTS = ('openwisp_monitoring.device.tasks',)
+    CELERY_IMPORTS = ('immunity_monitoring.device.tasks',)
 
 .. note::
     Celery tasks do not start with django server and need to be
@@ -395,7 +395,7 @@ The root ``url.py`` file should have the following paths (please read the commen
 
 .. code-block:: python
 
-    from openwisp_radius.urls import get_urls
+    from immunity_radius.urls import get_urls
     # Only imported when views are extended.
     # from myradius.api.views import views as api_views
     # from myradius.social.views import views as social_views
@@ -404,12 +404,12 @@ The root ``url.py`` file should have the following paths (please read the commen
     urlpatterns = [
         # ... other urls in your project ...
         path('admin/', admin.site.urls),
-        # openwisp-radius urls
-        path('accounts/', include('openwisp_users.accounts.urls')),
-        path('api/v1/', include('openwisp_utils.api.urls')),
+        # immunity-radius urls
+        path('accounts/', include('immunity_users.accounts.urls')),
+        path('api/v1/', include('immunity_utils.api.urls')),
         # Use only when extending views (dicussed below)
         # path('', include((get_urls(api_views, social_views, saml_views), 'radius'), namespace='radius')),
-        path('', include('openwisp_radius.urls', namespace='radius')), # Remove when extending views
+        path('', include('immunity_radius.urls', namespace='radius')), # Remove when extending views
     ]
 .. note::
     For more information about URL configuration in django, please refer to the
@@ -420,12 +420,12 @@ The root ``url.py`` file should have the following paths (please read the commen
 
 When developing a custom application based on this module, it's a good
 idea to import and run the base tests too, so that you can be sure the changes
-you're introducing are not breaking some of the existing features of *openwisp-radius*.
+you're introducing are not breaking some of the existing features of *immunity-radius*.
 
 In case you need to add breaking changes, you can overwrite the tests defined
 in the base classes to test your own behavior.
 
-See the `tests of the sample app <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/tests.py>`_
+See the `tests of the sample app <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/tests.py>`_
 to find out how to do this.
 
 You can then run tests with::
@@ -444,14 +444,14 @@ The following steps are not required and are intended for more advanced customiz
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The API view classes can be extended into other django applications as well. Note
-that it is not required for extending *openwisp-radius* to your app and this change
+that it is not required for extending *immunity-radius* to your app and this change
 is required only if you plan to make changes to the API views.
 
-Create a view file as done in `API views.py <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/api/views.py>`_.
+Create a view file as done in `API views.py <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/api/views.py>`_.
 
 Remember to use these views in root URL configurations in point 11.
 If you want only extend the API views and not social views, you can use
-``get_urls(api_views, None)`` to get social_views from *openwisp_radius*.
+``get_urls(api_views, None)`` to get social_views from *immunity_radius*.
 
 .. note::
     For more information about django views, please refer to the
@@ -461,27 +461,27 @@ If you want only extend the API views and not social views, you can use
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The social view classes can be extended into other django applications as well. Note
-that it is not required for extending *openwisp-radius* to your app and this change
+that it is not required for extending *immunity-radius* to your app and this change
 is required only if you plan to make changes to the social views.
 
-Create a view file as done in `social views.py <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/social/views.py>`_.
+Create a view file as done in `social views.py <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/social/views.py>`_.
 
 Remember to use these views in root URL configurations in point 11.
 If you want only extend the API views and not social views, you can use
-``get_urls(api_views, None)`` to get social_views from *openwisp_radius*.
+``get_urls(api_views, None)`` to get social_views from *immunity_radius*.
 
 3. Extending the SAML Views
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The SAML view classes can be extended into other django applications as well. Note
-that it is not required for extending *openwisp-radius* to your app and this change
+that it is not required for extending *immunity-radius* to your app and this change
 is required only if you plan to make changes to the SAML views.
 
-Create a view file as done in `saml views.py <https://github.com/openwisp/openwisp-radius/blob/master/tests/openwisp2/sample_radius/saml/views.py>`_.
+Create a view file as done in `saml views.py <https://github.com/edge-servers/immunity-radius/blob/master/tests/immunity2/sample_radius/saml/views.py>`_.
 
 Remember to use these views in root URL configurations in point 11.
 If you want only extend the API views and social view but not SAML views, you can use
-``get_urls(api_views, social_views, None)`` to get saml_views from *openwisp_radius*.
+``get_urls(api_views, social_views, None)`` to get saml_views from *immunity_radius*.
 
 .. note::
     For more information about django views, please refer to the

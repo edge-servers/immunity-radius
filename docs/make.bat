@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=source
 set BUILDDIR=build
-set SPHINXPROJ=openwisp-radius
+set SPHINXPROJ=immunity-radius
 
 if "%1" == "" goto help
 
