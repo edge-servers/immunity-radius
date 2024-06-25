@@ -192,20 +192,34 @@ Once you have created the models, add the following to your ``settings.py``:
 .. code-block:: python
 
     # Setting models for swapper module
-    OPENWISP_RADIUS_RADIUSREPLY_MODEL = 'myradius.RadiusReply'
-    OPENWISP_RADIUS_RADIUSGROUPREPLY_MODEL = 'myradius.RadiusGroupReply'
-    OPENWISP_RADIUS_RADIUSCHECK_MODEL = 'myradius.RadiusCheck'
-    OPENWISP_RADIUS_RADIUSGROUPCHECK_MODEL = 'myradius.RadiusGroupCheck'
-    OPENWISP_RADIUS_RADIUSACCOUNTING_MODEL = 'myradius.RadiusAccounting'
-    OPENWISP_RADIUS_NAS_MODEL = 'myradius.Nas'
-    OPENWISP_RADIUS_RADIUSUSERGROUP_MODEL = 'myradius.RadiusUserGroup'
-    OPENWISP_RADIUS_RADIUSPOSTAUTH_MODEL = 'myradius.RadiusPostAuth'
-    OPENWISP_RADIUS_RADIUSBATCH_MODEL = 'myradius.RadiusBatch'
-    OPENWISP_RADIUS_RADIUSGROUP_MODEL = 'myradius.RadiusGroup'
-    OPENWISP_RADIUS_RADIUSTOKEN_MODEL = 'myradius.RadiusToken'
-    OPENWISP_RADIUS_PHONETOKEN_MODEL = 'myradius.PhoneToken'
-    OPENWISP_RADIUS_ORGANIZATIONRADIUSSETTINGS_MODEL = 'myradius.OrganizationRadiusSettings'
-    OPENWISP_RADIUS_REGISTEREDUSER_MODEL = 'myradius.RegisteredUser'
+    IMMUNITY
+_RADIUS_RADIUSREPLY_MODEL = 'myradius.RadiusReply'
+    IMMUNITY
+_RADIUS_RADIUSGROUPREPLY_MODEL = 'myradius.RadiusGroupReply'
+    IMMUNITY
+_RADIUS_RADIUSCHECK_MODEL = 'myradius.RadiusCheck'
+    IMMUNITY
+_RADIUS_RADIUSGROUPCHECK_MODEL = 'myradius.RadiusGroupCheck'
+    IMMUNITY
+_RADIUS_RADIUSACCOUNTING_MODEL = 'myradius.RadiusAccounting'
+    IMMUNITY
+_RADIUS_NAS_MODEL = 'myradius.Nas'
+    IMMUNITY
+_RADIUS_RADIUSUSERGROUP_MODEL = 'myradius.RadiusUserGroup'
+    IMMUNITY
+_RADIUS_RADIUSPOSTAUTH_MODEL = 'myradius.RadiusPostAuth'
+    IMMUNITY
+_RADIUS_RADIUSBATCH_MODEL = 'myradius.RadiusBatch'
+    IMMUNITY
+_RADIUS_RADIUSGROUP_MODEL = 'myradius.RadiusGroup'
+    IMMUNITY
+_RADIUS_RADIUSTOKEN_MODEL = 'myradius.RadiusToken'
+    IMMUNITY
+_RADIUS_PHONETOKEN_MODEL = 'myradius.PhoneToken'
+    IMMUNITY
+_RADIUS_ORGANIZATIONRADIUSSETTINGS_MODEL = 'myradius.OrganizationRadiusSettings'
+    IMMUNITY
+_RADIUS_REGISTEREDUSER_MODEL = 'myradius.RegisteredUser'
 
     # You will need to change AUTH_USER_MODEL if you are extending immunity_users
     AUTH_USER_MODEL = 'immunity_users.User'
@@ -360,7 +374,8 @@ Add allowed freeradius hosts  in ``settings.py``:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1']
+    IMMUNITY
+_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1']
 
 .. note::
     Read more about :ref:`freeradius allowed hosts in settings page

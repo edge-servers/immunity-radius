@@ -153,10 +153,12 @@ which can be installed using the following command
     pip install immunity-radius[openvpn_status]
 
 In order to work, this command requires to be configured via the
-:ref:`OPENWISP_RADIUS_CALLED_STATION_IDS <immunity_radius_called_station_ids>` setting.
+:ref:`IMMUNITY
+_RADIUS_CALLED_STATION_IDS <immunity_radius_called_station_ids>` setting.
 
 Use the following command if you want to perform this operation for all
-RADIUS sessions that meet criteria of ``OPENWISP_RADIUS_CALLED_STATION_IDS``
+RADIUS sessions that meet criteria of ``IMMUNITY
+_RADIUS_CALLED_STATION_IDS``
 setting.
 
 .. code-block:: shell
@@ -173,7 +175,8 @@ replacing session's ``unique_id`` in the following command:
 .. note::
 
     If you encounter ``ParseError`` for datetime data, you can set the datetime format
-    of the parser using :ref:`OPENWISP_RADIUS_OPENVPN_DATETIME_FORMAT <immunity_radius_openvpn_datetime_format>`
+    of the parser using :ref:`IMMUNITY
+_RADIUS_OPENVPN_DATETIME_FORMAT <immunity_radius_openvpn_datetime_format>`
     setting.
 
 .. note::

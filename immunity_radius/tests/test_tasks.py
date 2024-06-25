@@ -249,7 +249,8 @@ class TestTasks(FileMixin, BaseTestCase):
     def test_unverify_inactive_users(self, *args):
         """
         Checks that inactive users are unverified after the days
-        configured in OPENWISP_RADIUS_UNVERIFY_INACTIVE_USERS setting,
+        configured in IMMUNITY
+_RADIUS_UNVERIFY_INACTIVE_USERS setting,
         here 30 days.
 
         Only non-staff users that do not have unspecified(''), manual

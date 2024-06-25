@@ -164,5 +164,6 @@ logs into Immunity with SAML, then the default behaviour of Immunity RADIUS
 prevents updating username of this user. Because, this operation could
 render the user's old credentials useless. If you want to update the username
 in such scenarios with details received from Identity Provider, set
-:ref:`OPENWISP_RADIUS_SAML_UPDATES_PRE_EXISTING_USERNAME <immunity_radius_saml_updates_pre_existing_username>`
+:ref:`IMMUNITY
+_RADIUS_SAML_UPDATES_PRE_EXISTING_USERNAME <immunity_radius_saml_updates_pre_existing_username>`
 to ``True``.

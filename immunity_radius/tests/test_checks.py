@@ -17,7 +17,8 @@ class TestChecks(TestCase):
             self.assertEqual(len(error_list), 1)
             error = error_list.pop()
             self.assertEqual(error.msg, 'Improperly Configured')
-            self.assertIn('OPENWISP_RADIUS_SOCIAL_REGISTRATION_ENABLED', error.hint)
+            self.assertIn('IMMUNITY
+_RADIUS_SOCIAL_REGISTRATION_ENABLED', error.hint)
 
     @patch('immunity_radius.settings.SAML_REGISTRATION_CONFIGURED', False)
     def test_check_saml_registration_enabled(self):
@@ -30,4 +31,5 @@ class TestChecks(TestCase):
             self.assertEqual(len(error_list), 1)
             error = error_list.pop()
             self.assertEqual(error.msg, 'Improperly Configured')
-            self.assertIn('OPENWISP_RADIUS_SAML_REGISTRATION_ENABLED', error.hint)
+            self.assertIn('IMMUNITY
+_RADIUS_SAML_REGISTRATION_ENABLED', error.hint)

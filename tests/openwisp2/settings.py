@@ -13,9 +13,12 @@ DEBUG = True
 SECRET_KEY = '&a@f(0@lrl%606smticbu20=pvribdvubk5=gjti8&n1y%bi&4'
 
 ALLOWED_HOSTS = []
-OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1']
-OPENWISP_RADIUS_COA_ENABLED = True
-OPENWISP_RADIUS_ALLOWED_MOBILE_PREFIXES = ['+44', '+39', '+237', '+595']
+IMMUNITY
+_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1']
+IMMUNITY
+_RADIUS_COA_ENABLED = True
+IMMUNITY
+_RADIUS_ALLOWED_MOBILE_PREFIXES = ['+44', '+39', '+237', '+595']
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -213,7 +216,8 @@ SOCIALACCOUNT_PROVIDERS = {
 
 redis_host = os.getenv('REDIS_HOST', 'localhost')
 
-OPENWISP_RADIUS_PASSWORD_RESET_URLS = {
+IMMUNITY
+_RADIUS_PASSWORD_RESET_URLS = {
     '__all__': (
         'http://localhost:8080/{organization}/password/reset/confirm/{uid}/{token}'
     ),
@@ -222,10 +226,14 @@ OPENWISP_RADIUS_PASSWORD_RESET_URLS = {
 if not TESTING:
     CELERY_BROKER_URL = os.getenv('REDIS_URL', f'redis://{redis_host}/1')
 else:
-    OPENWISP_RADIUS_GROUPCHECK_ADMIN = True
-    OPENWISP_RADIUS_GROUPREPLY_ADMIN = True
-    OPENWISP_RADIUS_USERGROUP_ADMIN = True
-    OPENWISP_RADIUS_USER_ADMIN_RADIUSTOKEN_INLINE = True
+    IMMUNITY
+_RADIUS_GROUPCHECK_ADMIN = True
+    IMMUNITY
+_RADIUS_GROUPREPLY_ADMIN = True
+    IMMUNITY
+_RADIUS_USERGROUP_ADMIN = True
+    IMMUNITY
+_RADIUS_USER_ADMIN_RADIUSTOKEN_INLINE = True
     CELERY_TASK_ALWAYS_EAGER = True
     CELERY_TASK_EAGER_PROPAGATES = True
     CELERY_BROKER_URL = 'memory://'
@@ -276,7 +284,8 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 SENDSMS_BACKEND = 'sendsms.backends.console.SmsBackend'
-OPENWISP_RADIUS_EXTRA_NAS_TYPES = (('cisco', 'Cisco Router'),)
+IMMUNITY
+_RADIUS_EXTRA_NAS_TYPES = (('cisco', 'Cisco Router'),)
 
 REST_AUTH = {
     'SESSION_LOGIN': False,
@@ -287,7 +296,8 @@ REST_AUTH = {
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'email_confirmation_success'
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'email_confirmation_success'
 
-# OPENWISP_RADIUS_PASSWORD_RESET_URLS = {
+# IMMUNITY
+_RADIUS_PASSWORD_RESET_URLS = {
 #     # use the uuid because the slug can change
 #     # 'dabbd57a-11ca-4277-8dbb-ad21057b5ecd': 'https://org.com/{organization}/password/reset/confirm/{uid}/{token}',
 #     # fallback in case the specific org page is not defined
@@ -295,14 +305,19 @@ ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'email_confirmation_succ
 # }
 
 if TESTING:
-    OPENWISP_RADIUS_SMS_TOKEN_MAX_USER_DAILY = 3
-    OPENWISP_RADIUS_SMS_TOKEN_MAX_ATTEMPTS = 3
-    OPENWISP_RADIUS_SMS_TOKEN_MAX_IP_DAILY = 4
+    IMMUNITY
+_RADIUS_SMS_TOKEN_MAX_USER_DAILY = 3
+    IMMUNITY
+_RADIUS_SMS_TOKEN_MAX_ATTEMPTS = 3
+    IMMUNITY
+_RADIUS_SMS_TOKEN_MAX_IP_DAILY = 4
     SENDSMS_BACKEND = 'sendsms.backends.dummy.SmsBackend'
 else:
-    OPENWISP_RADIUS_SMS_TOKEN_MAX_USER_DAILY = 10
+    IMMUNITY
+_RADIUS_SMS_TOKEN_MAX_USER_DAILY = 10
 
-OPENWISP_USERS_AUTH_API = True
+IMMUNITY
+_USERS_AUTH_API = True
 
 if os.environ.get('SAMPLE_APP', False):
     INSTALLED_APPS.remove('immunity_radius')
@@ -311,26 +326,46 @@ if os.environ.get('SAMPLE_APP', False):
     INSTALLED_APPS.append('immunity2.sample_users')
     EXTENDED_APPS = ('immunity_radius', 'immunity_users')
     AUTH_USER_MODEL = 'sample_users.User'
-    OPENWISP_USERS_GROUP_MODEL = 'sample_users.Group'
-    OPENWISP_USERS_ORGANIZATION_MODEL = 'sample_users.Organization'
-    OPENWISP_USERS_ORGANIZATIONUSER_MODEL = 'sample_users.OrganizationUser'
-    OPENWISP_USERS_ORGANIZATIONOWNER_MODEL = 'sample_users.OrganizationOwner'
-    OPENWISP_USERS_ORGANIZATIONINVITATION_MODEL = 'sample_users.OrganizationInvitation'
-    OPENWISP_RADIUS_RADIUSREPLY_MODEL = 'sample_radius.RadiusReply'
-    OPENWISP_RADIUS_RADIUSGROUPREPLY_MODEL = 'sample_radius.RadiusGroupReply'
-    OPENWISP_RADIUS_RADIUSCHECK_MODEL = 'sample_radius.RadiusCheck'
-    OPENWISP_RADIUS_RADIUSGROUPCHECK_MODEL = 'sample_radius.RadiusGroupCheck'
-    OPENWISP_RADIUS_RADIUSACCOUNTING_MODEL = 'sample_radius.RadiusAccounting'
-    OPENWISP_RADIUS_NAS_MODEL = 'sample_radius.Nas'
-    OPENWISP_RADIUS_RADIUSUSERGROUP_MODEL = 'sample_radius.RadiusUserGroup'
-    OPENWISP_RADIUS_REGISTEREDUSER_MODEL = 'sample_radius.RadiusUserGroup'
-    OPENWISP_RADIUS_RADIUSPOSTAUTH_MODEL = 'sample_radius.RadiusPostAuth'
-    OPENWISP_RADIUS_RADIUSBATCH_MODEL = 'sample_radius.RadiusBatch'
-    OPENWISP_RADIUS_RADIUSGROUP_MODEL = 'sample_radius.RadiusGroup'
-    OPENWISP_RADIUS_RADIUSTOKEN_MODEL = 'sample_radius.RadiusToken'
-    OPENWISP_RADIUS_PHONETOKEN_MODEL = 'sample_radius.PhoneToken'
-    OPENWISP_RADIUS_REGISTEREDUSER_MODEL = 'sample_radius.RegisteredUser'
-    OPENWISP_RADIUS_ORGANIZATIONRADIUSSETTINGS_MODEL = (
+    IMMUNITY
+_USERS_GROUP_MODEL = 'sample_users.Group'
+    IMMUNITY
+_USERS_ORGANIZATION_MODEL = 'sample_users.Organization'
+    IMMUNITY
+_USERS_ORGANIZATIONUSER_MODEL = 'sample_users.OrganizationUser'
+    IMMUNITY
+_USERS_ORGANIZATIONOWNER_MODEL = 'sample_users.OrganizationOwner'
+    IMMUNITY
+_USERS_ORGANIZATIONINVITATION_MODEL = 'sample_users.OrganizationInvitation'
+    IMMUNITY
+_RADIUS_RADIUSREPLY_MODEL = 'sample_radius.RadiusReply'
+    IMMUNITY
+_RADIUS_RADIUSGROUPREPLY_MODEL = 'sample_radius.RadiusGroupReply'
+    IMMUNITY
+_RADIUS_RADIUSCHECK_MODEL = 'sample_radius.RadiusCheck'
+    IMMUNITY
+_RADIUS_RADIUSGROUPCHECK_MODEL = 'sample_radius.RadiusGroupCheck'
+    IMMUNITY
+_RADIUS_RADIUSACCOUNTING_MODEL = 'sample_radius.RadiusAccounting'
+    IMMUNITY
+_RADIUS_NAS_MODEL = 'sample_radius.Nas'
+    IMMUNITY
+_RADIUS_RADIUSUSERGROUP_MODEL = 'sample_radius.RadiusUserGroup'
+    IMMUNITY
+_RADIUS_REGISTEREDUSER_MODEL = 'sample_radius.RadiusUserGroup'
+    IMMUNITY
+_RADIUS_RADIUSPOSTAUTH_MODEL = 'sample_radius.RadiusPostAuth'
+    IMMUNITY
+_RADIUS_RADIUSBATCH_MODEL = 'sample_radius.RadiusBatch'
+    IMMUNITY
+_RADIUS_RADIUSGROUP_MODEL = 'sample_radius.RadiusGroup'
+    IMMUNITY
+_RADIUS_RADIUSTOKEN_MODEL = 'sample_radius.RadiusToken'
+    IMMUNITY
+_RADIUS_PHONETOKEN_MODEL = 'sample_radius.PhoneToken'
+    IMMUNITY
+_RADIUS_REGISTEREDUSER_MODEL = 'sample_radius.RegisteredUser'
+    IMMUNITY
+_RADIUS_ORGANIZATIONRADIUSSETTINGS_MODEL = (
         'sample_radius.OrganizationRadiusSettings'
     )
     # Rename sample_app database
@@ -339,9 +374,12 @@ if os.environ.get('SAMPLE_APP', False):
 
 if os.environ.get('SAMPLE_APP', False) and TESTING:
     # Required for immunity-users tests
-    OPENWISP_ORGANIZATION_USER_ADMIN = True
-    OPENWISP_ORGANIZATION_OWNER_ADMIN = True
-    OPENWISP_USERS_AUTH_API = True
+    IMMUNITY
+_ORGANIZATION_USER_ADMIN = True
+    IMMUNITY
+_ORGANIZATION_OWNER_ADMIN = True
+    IMMUNITY
+_USERS_AUTH_API = True
 
 # CORS headers, useful during development and testing
 try:

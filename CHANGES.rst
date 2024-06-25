@@ -30,7 +30,8 @@ Bugfixes
 - Use ``path`` URL kwarg in "serve_private_file" URL pattern
 - Honor DISPOSABLE_RADIUS_USER_TOKEN in accounting stop API view:
   The accounting stop REST API operation was not taking into
-  account the OPENWISP_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN
+  account the IMMUNITY
+_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN
   setting when disabling the auth capability of the radius token.
 
 Version 1.0.1 [2022-05-10]
@@ -57,22 +58,27 @@ Features
 
 - Allowed to login via API with email or phone number
 - Allowed freeradius authorize with email or phone number
-- Allowed the usage of subnets in `OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS
+- Allowed the usage of subnets in `IMMUNITY
+_RADIUS_FREERADIUS_ALLOWED_HOSTS
   <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-freeradius-allowed-hosts>`_
 - Made the fields containing personal data of users which are exposed in the registration API
   configurable (allowed, mandatory, disabled) via the
-  `OPENWISP_RADIUS_OPTIONAL_REGISTRATION_FIELDS setting or the admin interface
+  `IMMUNITY
+_RADIUS_OPTIONAL_REGISTRATION_FIELDS setting or the admin interface
   <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-optional-registration-fields>`_
 - Allow to disable registration API via the
-  `OPENWISP_RADIUS_REGISTRATION_API_ENABLED setting
+  `IMMUNITY
+_RADIUS_REGISTRATION_API_ENABLED setting
   or the admin interface
   <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-registration-api-enabled>`_
 - Added `throttling of API requests
   <https://immunity-radius.readthedocs.io/en/latest/user/api.html#api-throttling>`_
-- Added `OPENWISP_RADIUS_API_BASEURL setting
+- Added `IMMUNITY
+_RADIUS_API_BASEURL setting
   <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-api-baseurl>`_
 - Add identity verification feature, configurable via the
-  `OPENWISP_RADIUS_NEEDS_IDENTITY_VERIFICATION or via admin interface
+  `IMMUNITY
+_RADIUS_NEEDS_IDENTITY_VERIFICATION or via admin interface
   <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-needs-identity-verification>`_
 - Added utilities for implementing
   `new registration and identity verification methods
@@ -91,7 +97,8 @@ Features
   <https://immunity-radius.readthedocs.io/en/latest/user/management_commands.html#convert-called-station-id>`_,
   celery task and management command,
   with the possibility of triggering it on accounting creation
-  (see `OPENWISP_RADIUS_CONVERT_CALLED_STATION_ON_CREATE
+  (see `IMMUNITY
+_RADIUS_CONVERT_CALLED_STATION_ON_CREATE
   <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-convert-called-station-on-create>`_)
 - Added an `equivalent of the FreeRADIUS sqlcounter feature to the REST API
   <https://immunity-radius.readthedocs.io/en/latest/user/enforcing_limits.html#how-limits-are-enforced-counters>`_
@@ -103,13 +110,16 @@ Features
 - Added organization level settings and related admin interface functionality
   to enable/disable SAML and social login:
 
-  - `OPENWISP_RADIUS_SAML_REGISTRATION_ENABLED
+  - `IMMUNITY
+_RADIUS_SAML_REGISTRATION_ENABLED
     <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-saml-registration-enabled>`_
-  - `OPENWISP_RADIUS_SOCIAL_REGISTRATION_ENABLED
+  - `IMMUNITY
+_RADIUS_SOCIAL_REGISTRATION_ENABLED
     <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-social-registration-enabled>`_
 
 - Added setting to avoid updating username from SAML:
-  `OPENWISP_RADIUS_SAML_UPDATES_PRE_EXISTING_USERNAME
+  `IMMUNITY
+_RADIUS_SAML_UPDATES_PRE_EXISTING_USERNAME
   <https://immunity-radius.readthedocs.io/en/latest/user/settings.html#immunity-radius-saml-updates-pre-existing-username>`_
 
 Changes

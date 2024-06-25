@@ -49,7 +49,8 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'radius token',
                 'db_table': 'radiustoken',
                 'abstract': False,
-                'swappable': 'OPENWISP_RADIUS_RADIUSTOKEN_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSTOKEN_MODEL',
             },
         )
     ]

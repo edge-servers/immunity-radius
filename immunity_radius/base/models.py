@@ -1287,7 +1287,8 @@ class AbstractOrganizationRadiusSettings(UUIDModel):
                 {
                     'freeradius_allowed_hosts': _(
                         'Cannot be empty when the settings value for '
-                        '`OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS` is not provided.'
+                        '`IMMUNITY
+_RADIUS_FREERADIUS_ALLOWED_HOSTS` is not provided.'
                     )
                 }
             )

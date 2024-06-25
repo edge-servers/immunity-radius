@@ -453,7 +453,8 @@ class TestCommands(FileMixin, CallCommandMixin, BaseTestCase):
                     'convert_called_station_id', unique_id=radius_acc.unique_id
                 )
                 mocked_logger.assert_called_once_with(
-                    'OPENWISP_RADIUS_CALLED_STATION_IDS does not contain setting for'
+                    'IMMUNITY
+_RADIUS_CALLED_STATION_IDS does not contain setting for'
                     f' "{radius_acc.organization.name}" organization'
                 )
 

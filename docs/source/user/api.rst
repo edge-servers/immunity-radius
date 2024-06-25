@@ -8,7 +8,8 @@ API Documentation
 
 .. important::
     The REST API of immunity-radius is enabled by default and may be turned off by
-    setting :ref:`OPENWISP_RADIUS_API <immunity_radius_api>` to ``False``.
+    setting :ref:`IMMUNITY
+_RADIUS_API <immunity_radius_api>` to ``False``.
 
 Live documentation
 ******************
@@ -81,7 +82,8 @@ in the same Immunity instance.
     By default, ``<radius_token>`` is valid for authentication for one
     request only and a new ``<radius_token>`` needs to be `obtained for
     each request <#login-obtain-user-auth-token>`_.
-    However, if `OPENWISP_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN
+    However, if `IMMUNITY
+_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN
     <./settings.html#immunity-radius-disposable-radius-user-token>`_
     is set to ``False``, the ``<radius_token>`` is valid for authentication
     as long as freeradius accounting ``Stop`` request is not sent
@@ -237,7 +239,8 @@ related to the group with highest priority assigned to the user.
 
 If the authorization is unsuccessful, the response body can either be empty
 or it can contain an explicit rejection, depending on how the
-:ref:`OPENWISP_RADIUS_API_AUTHORIZE_REJECT <immunity_radius_api_authorize_reject>`
+:ref:`IMMUNITY
+_RADIUS_API_AUTHORIZE_REJECT <immunity_radius_api_authorize_reject>`
 setting is configured.
 
 .. _post_auth:

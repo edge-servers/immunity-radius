@@ -11,21 +11,24 @@ These settings control details of the administration interface of immunity-radiu
     The values of overridden settings fields do not change even when
     the global defaults are changed.
 
-``OPENWISP_RADIUS_EDITABLE_ACCOUNTING``
+``IMMUNITY
+_RADIUS_EDITABLE_ACCOUNTING``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
 
 Whether ``radacct`` entries are editable from the django admin or not.
 
-``OPENWISP_RADIUS_EDITABLE_POSTAUTH``
+``IMMUNITY
+_RADIUS_EDITABLE_POSTAUTH``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
 
 Whether ``postauth`` logs are editable from the django admin or not.
 
-``OPENWISP_RADIUS_GROUPCHECK_ADMIN``
+``IMMUNITY
+_RADIUS_GROUPCHECK_ADMIN``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -40,7 +43,8 @@ overwhelming users with too many options*.
 If for some reason you need to enable direct editing of group checks
 you can do so by setting this to ``True``.
 
-``OPENWISP_RADIUS_GROUPREPLY_ADMIN``
+``IMMUNITY
+_RADIUS_GROUPREPLY_ADMIN``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -55,7 +59,8 @@ overwhelming users with too many options*.
 If for some reason you need to enable direct editing of group replies
 you can do so by setting this to ``True``.
 
-``OPENWISP_RADIUS_USERGROUP_ADMIN``
+``IMMUNITY
+_RADIUS_USERGROUP_ADMIN``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -70,7 +75,8 @@ overwhelming users with too many options*.
 If for some reason you need to enable direct editing of user group items
 you can do so by setting this to ``True``.
 
-``OPENWISP_RADIUS_USER_ADMIN_RADIUSTOKEN_INLINE``
+``IMMUNITY
+_RADIUS_USER_ADMIN_RADIUSTOKEN_INLINE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -89,14 +95,16 @@ Model related settings
 
 These settings control details of the immunity-radius model classes.
 
-``OPENWISP_RADIUS_DEFAULT_SECRET_FORMAT``
+``IMMUNITY
+_RADIUS_DEFAULT_SECRET_FORMAT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``NT-Password``
 
 The default encryption format for storing radius check values.
 
-``OPENWISP_RADIUS_DISABLED_SECRET_FORMATS``
+``IMMUNITY
+_RADIUS_DISABLED_SECRET_FORMATS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``[]``
@@ -104,7 +112,8 @@ The default encryption format for storing radius check values.
 A list of disabled encryption formats, by default all formats are
 enabled in order to keep backward compatibility with legacy systems.
 
-``OPENWISP_RADIUS_BATCH_DEFAULT_PASSWORD_LENGTH``
+``IMMUNITY
+_RADIUS_BATCH_DEFAULT_PASSWORD_LENGTH``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``8``
@@ -112,21 +121,24 @@ enabled in order to keep backward compatibility with legacy systems.
 The default password length of the auto generated passwords while
 batch addition of users from the csv.
 
-``OPENWISP_RADIUS_BATCH_DELETE_EXPIRED``
+``IMMUNITY
+_RADIUS_BATCH_DELETE_EXPIRED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``18``
 
 It is the number of months after which the expired users are deleted.
 
-``OPENWISP_RADIUS_BATCH_PDF_TEMPLATE``
+``IMMUNITY
+_RADIUS_BATCH_PDF_TEMPLATE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is the template used to generate the pdf when users are being generated using the batch add users feature using the prefix.
 
 The value should be the absolute path to the template of the pdf.
 
-``OPENWISP_RADIUS_EXTRA_NAS_TYPES``
+``IMMUNITY
+_RADIUS_EXTRA_NAS_TYPES``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``tuple()``
@@ -139,13 +151,15 @@ the following to your project ``settings.py``:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_EXTRA_NAS_TYPES = (
+    IMMUNITY
+_RADIUS_EXTRA_NAS_TYPES = (
         ('cisco', 'Cisco Router'),
     )
 
 .. _immunity_radius_freeradius_allowed_hosts:
 
-``OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS``
+``IMMUNITY
+_RADIUS_FREERADIUS_ALLOWED_HOSTS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``[]``
@@ -174,7 +188,8 @@ it from organization change page for each organization.
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1', '192.0.2.10', '192.168.0.0/24']
+    IMMUNITY
+_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1', '192.0.2.10', '192.168.0.0/24']
 
 If this option and organization change page option are both
 empty, then all freeradius API requests for the organization
@@ -182,7 +197,8 @@ will return ``403``.
 
 .. _coa_enabled_setting:
 
-``OPENWISP_RADIUS_COA_ENABLED``
+``IMMUNITY
+_RADIUS_COA_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False```
@@ -218,7 +234,8 @@ for RADIUS attribute mapping.
     is shipped with immunity-radius. Any dictionary added using this setting
     will be used alongside the default dictionary.
 
-``OPENWISP_RADIUS_MAX_CSV_FILE_SIZE``
+``IMMUNITY
+_RADIUS_MAX_CSV_FILE_SIZE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------+----------------------------+
@@ -231,14 +248,16 @@ This setting can be used to set the maximum size limit for firmware images, eg:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_MAX_CSV_FILE_SIZE = 10 * 1024 * 1024  # 10MB
+    IMMUNITY
+_RADIUS_MAX_CSV_FILE_SIZE = 10 * 1024 * 1024  # 10MB
 
 .. note::
 
     The numeric value represents the size of files in bytes.
     Setting this to ``None`` will mean there's no max size.
 
-``OPENWISP_RADIUS_PRIVATE_STORAGE_INSTANCE``
+``IMMUNITY
+_RADIUS_PRIVATE_STORAGE_INSTANCE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 +--------------+-------------------------------------------------------------------------------------+
 | **type**:    | ``str``                                                                             |
@@ -255,7 +274,8 @@ is used.
 
 .. _immunity_radius_called_station_ids:
 
-``OPENWISP_RADIUS_CALLED_STATION_IDS``
+``IMMUNITY
+_RADIUS_CALLED_STATION_IDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``{}``
@@ -268,7 +288,8 @@ It should contain configuration in following format:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_CALLED_STATION_IDS = {
+    IMMUNITY
+_RADIUS_CALLED_STATION_IDS = {
         # UUID of the organization for which settings are being specified
         # In this example 'default'
         '<organization_uuid>': {
@@ -288,18 +309,21 @@ It should contain configuration in following format:
         }
     }
 
-``OPENWISP_RADIUS_CONVERT_CALLED_STATION_ON_CREATE``
+``IMMUNITY
+_RADIUS_CONVERT_CALLED_STATION_ON_CREATE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
 
 If set to ``True``, "Called Station ID" of a RADIUS session will be
-converted (as per configuration defined in :ref:`OPENWISP_RADIUS_CALLED_STATION_IDS <immunity_radius_called_station_ids>`)
+converted (as per configuration defined in :ref:`IMMUNITY
+_RADIUS_CALLED_STATION_IDS <immunity_radius_called_station_ids>`)
 just after the RADIUS session is created.
 
 .. _immunity_radius_openvpn_datetime_format:
 
-``OPENWISP_RADIUS_OPENVPN_DATETIME_FORMAT``
+``IMMUNITY
+_RADIUS_OPENVPN_DATETIME_FORMAT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``u'%a %b %d %H:%M:%S %Y'``
@@ -308,7 +332,8 @@ Specifies the datetime format of OpenVPN management status parser used by the
 :ref:`convert_called_station_id <convert_called_station_id>`
 command.
 
-``OPENWISP_RADIUS_UNVERIFY_INACTIVE_USERS``
+``IMMUNITY
+_RADIUS_UNVERIFY_INACTIVE_USERS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``0`` (disabled)
@@ -319,7 +344,8 @@ user will be flagged as *unverified*.
 When set to ``0``, the feature would be disabled and the user will
 not be flagged as *unverified*.
 
-``OPENWISP_RADIUS_DELETE_INACTIVE_USERS``
+``IMMUNITY
+_RADIUS_DELETE_INACTIVE_USERS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``0`` (disabled)
@@ -336,7 +362,8 @@ API and user token related settings
 
 These settings control details related to the API and the radius user token.
 
-``OPENWISP_RADIUS_API_URLCONF``
+``IMMUNITY
+_RADIUS_API_URLCONF``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``None``
@@ -345,7 +372,8 @@ Changes the urlconf option of django urls to point the RADIUS API
 urls to another installed module, example, ``myapp.urls``
 (useful when you have a seperate API instance.)
 
-``OPENWISP_RADIUS_API_BASEURL``
+``IMMUNITY
+_RADIUS_API_BASEURL``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``/`` (points to same server)
@@ -357,14 +385,16 @@ example value: ``https://myradius.myapp.com``.
 
 .. _immunity_radius_api:
 
-``OPENWISP_RADIUS_API``
+``IMMUNITY
+_RADIUS_API``
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``True``
 
 Indicates whether the REST API of immunity-radius is enabled or not.
 
-``OPENWISP_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN``
+``IMMUNITY
+_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``True``
@@ -377,7 +407,8 @@ the access tokens and posing as other users if they manage to intercept it someh
 
 .. _immunity_radius_api_authorize_reject:
 
-``OPENWISP_RADIUS_API_AUTHORIZE_REJECT``
+``IMMUNITY
+_RADIUS_API_AUTHORIZE_REJECT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -394,7 +425,8 @@ with other freeradius modules.
 
 Set this to ``True`` if you are performing authorization exclusively through the REST API.
 
-``OPENWISP_RADIUS_API_ACCOUNTING_AUTO_GROUP``
+``IMMUNITY
+_RADIUS_API_ACCOUNTING_AUTO_GROUP``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``True``
@@ -410,7 +442,8 @@ will be saved as usual.
 
 .. _immunity_radius_allowed_mobile_prefixes:
 
-``OPENWISP_RADIUS_ALLOWED_MOBILE_PREFIXES``
+``IMMUNITY
+_RADIUS_ALLOWED_MOBILE_PREFIXES``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``[]``
@@ -428,7 +461,8 @@ For example:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_ALLOWED_MOBILE_PREFIXES = ['+44', '+237']
+    IMMUNITY
+_RADIUS_ALLOWED_MOBILE_PREFIXES = ['+44', '+237']
 
 Using the setting above will only allow phone numbers from the UK (``+44``)
 or Cameroon (``+237``).
@@ -439,7 +473,8 @@ or Cameroon (``+237``).
     which have :ref:`enabled the SMS verification option
     <immunity_radius_sms_verification_enabled>`.
 
-``OPENWISP_RADIUS_ALLOW_FIXED_LINE_OR_MOBILE``
+``IMMUNITY
+_RADIUS_ALLOW_FIXED_LINE_OR_MOBILE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -451,7 +486,8 @@ would make phone number type checking less strict.
 
 .. _immunity_radius_optional_registration_fields:
 
-``OPENWISP_RADIUS_OPTIONAL_REGISTRATION_FIELDS``
+``IMMUNITY
+_RADIUS_OPTIONAL_REGISTRATION_FIELDS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**:
@@ -480,7 +516,8 @@ For example:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_OPTIONAL_REGISTRATION_FIELDS = {
+    IMMUNITY
+_RADIUS_OPTIONAL_REGISTRATION_FIELDS = {
         'first_name': 'disabled',
         'last_name': 'disabled',
         'birth_date': 'mandatory',
@@ -508,7 +545,8 @@ By default the fields at organization level hold a ``NULL`` value,
 which means that the global setting specified in ``settings.py`` will
 be used.
 
-``OPENWISP_RADIUS_PASSWORD_RESET_URLS``
+``IMMUNITY
+_RADIUS_PASSWORD_RESET_URLS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
@@ -559,7 +597,8 @@ the configuration should be simply changed to:
 
 .. _immunity_radius_registration_api_enabled:
 
-``OPENWISP_RADIUS_REGISTRATION_API_ENABLED``
+``IMMUNITY
+_RADIUS_REGISTRATION_API_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``True``
@@ -584,7 +623,8 @@ then edit a specific organization and scroll down to
 
 .. _immunity_radius_sms_verification_enabled:
 
-``OPENWISP_RADIUS_SMS_VERIFICATION_ENABLED``
+``IMMUNITY
+_RADIUS_SMS_VERIFICATION_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -606,7 +646,8 @@ via the organization radius settings section of the admin interface.
 
 .. _immunity_radius_needs_identity_verification:
 
-``OPENWISP_RADIUS_MAC_ADDR_ROAMING_ENABLED``
+``IMMUNITY
+_RADIUS_MAC_ADDR_ROAMING_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -630,7 +671,8 @@ then edit a specific organization and scroll down to
     if all the organization use the same configuration, we recommend
     changing the global setting.
 
-``OPENWISP_RADIUS_NEEDS_IDENTITY_VERIFICATION``
+``IMMUNITY
+_RADIUS_NEEDS_IDENTITY_VERIFICATION``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -730,7 +772,8 @@ The content of these emails can be customized with the settings explained below.
 
 .. _immunity_radius_batch_mail_subject:
 
-``OPENWISP_RADIUS_BATCH_MAIL_SUBJECT``
+``IMMUNITY
+_RADIUS_BATCH_MAIL_SUBJECT``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``Credentials``
@@ -739,7 +782,8 @@ It is the subject of the mail to be sent to the users. Eg: ``Login Credentials``
 
 .. _immunity_radius_batch_mail_message:
 
-``OPENWISP_RADIUS_BATCH_MAIL_MESSAGE``
+``IMMUNITY
+_RADIUS_BATCH_MAIL_MESSAGE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``username: {}, password: {}``
@@ -751,7 +795,8 @@ The text could be anything but should have the format string operator ``{}`` for
 
 .. _immunity_radius_batch_mail_sender:
 
-``OPENWISP_RADIUS_BATCH_MAIL_SENDER``
+``IMMUNITY
+_RADIUS_BATCH_MAIL_SENDER``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``settings.DEFAULT_FROM_EMAIL``
@@ -769,7 +814,8 @@ Counter related settings
 
 .. _counters_setting:
 
-``OPENWISP_RADIUS_COUNTERS``
+``IMMUNITY
+_RADIUS_COUNTERS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: depends on the database backend in use,
@@ -781,14 +827,16 @@ It may be set to an empty list or tuple to disable the counter feature, eg:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_COUNTERS = []
+    IMMUNITY
+_RADIUS_COUNTERS = []
 
 If custom counters have been implemented, this setting should be changed
 to include the new classes, eg:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_COUNTERS = [
+    IMMUNITY
+_RADIUS_COUNTERS = [
         # default counters for PostgreSQL, may be removed if not needed
         'immunity_radius.counters.postgresql.daily_counter.DailyCounter',
         'immunity_radius.counters.postgresql.daily_traffic_counter.DailyTrafficCounter',
@@ -799,7 +847,8 @@ to include the new classes, eg:
 
 .. _traffic_counter_check_name:
 
-``OPENWISP_RADIUS_TRAFFIC_COUNTER_CHECK_NAME``
+``IMMUNITY
+_RADIUS_TRAFFIC_COUNTER_CHECK_NAME``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``Max-Daily-Session-Traffic``
@@ -811,7 +860,8 @@ which users having the default ``users`` radius group assigned can consume.
 
 .. _traffic_counter_reply_name:
 
-``OPENWISP_RADIUS_TRAFFIC_COUNTER_REPLY_NAME``
+``IMMUNITY
+_RADIUS_TRAFFIC_COUNTER_REPLY_NAME``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``CoovaChilli-Max-Total-Octets``
@@ -825,7 +875,8 @@ can consume.
 It should be changed according to the NAS software in use, for example,
 if using PfSense, this setting should be set to ``pfSense-Max-Total-Octets``.
 
-``OPENWISP_RADIUS_RADIUS_ATTRIBUTES_TYPE_MAP``
+``IMMUNITY
+_RADIUS_RADIUS_ATTRIBUTES_TYPE_MAP``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``{}``
@@ -840,7 +891,8 @@ type in the API response for ``ChilliSpot-Max-Input-Octets`` attribute:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_RADIUS_ATTRIBUTES_TYPE_MAP = {
+    IMMUNITY
+_RADIUS_RADIUS_ATTRIBUTES_TYPE_MAP = {
         'ChilliSpot-Max-Input-Octets': 'bytes'
     }
 
@@ -853,7 +905,8 @@ The following settings are related to the :ref:`social login feature <social_log
 
 .. _immunity_radius_social_registration_enabled:
 
-``OPENWISP_RADIUS_SOCIAL_REGISTRATION_ENABLED``
+``IMMUNITY
+_RADIUS_SOCIAL_REGISTRATION_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -886,7 +939,8 @@ The following settings are related to the :ref:`SAML feature <saml_>`.
 
 .. _immunity_radius_saml_registration_enabled:
 
-``OPENWISP_RADIUS_SAML_REGISTRATION_ENABLED``
+``IMMUNITY
+_RADIUS_SAML_REGISTRATION_ENABLED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -910,14 +964,16 @@ then edit a specific organization and scroll down to
     if all the organization use the same configuration, we recommend
     changing the global setting.
 
-``OPENWISP_RADIUS_SAML_REGISTRATION_METHOD_LABEL``
+``IMMUNITY
+_RADIUS_SAML_REGISTRATION_METHOD_LABEL``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``'Single Sign-On (SAML)'``
 
 Sets the verbose name of SAML registration method.
 
-``OPENWISP_RADIUS_SAML_IS_VERIFIED``
+``IMMUNITY
+_RADIUS_SAML_IS_VERIFIED``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -930,7 +986,8 @@ to be legally valid identity verifiers.
 
 .. _immunity_radius_saml_updates_pre_existing_username:
 
-``OPENWISP_RADIUS_SAML_UPDATES_PRE_EXISTING_USERNAME``
+``IMMUNITY
+_RADIUS_SAML_UPDATES_PRE_EXISTING_USERNAME``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``False``
@@ -971,35 +1028,40 @@ The value of this setting can point to any class on the python path,
 so the backend doesn't have to be necessarily shipped in django-sendsms
 but can be deployed in any other location.
 
-``OPENWISP_RADIUS_SMS_TOKEN_DEFAULT_VALIDITY``
+``IMMUNITY
+_RADIUS_SMS_TOKEN_DEFAULT_VALIDITY``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``30``
 
 For how many minutes the SMS token is valid for.
 
-``OPENWISP_RADIUS_SMS_TOKEN_LENGTH``
+``IMMUNITY
+_RADIUS_SMS_TOKEN_LENGTH``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``6``
 
 The length of the SMS token.
 
-``OPENWISP_RADIUS_SMS_TOKEN_HASH_ALGORITHM``
+``IMMUNITY
+_RADIUS_SMS_TOKEN_HASH_ALGORITHM``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``'sha256'``
 
 The hashing algorithm used to generate the numeric code.
 
-``OPENWISP_RADIUS_SMS_COOLDOWN``
+``IMMUNITY
+_RADIUS_SMS_COOLDOWN``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``30``
 
 Seconds users needs to wait before being able to request a new SMS token.
 
-``OPENWISP_RADIUS_SMS_TOKEN_MAX_ATTEMPTS``
+``IMMUNITY
+_RADIUS_SMS_TOKEN_MAX_ATTEMPTS``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``5``
@@ -1008,14 +1070,16 @@ The max number of mistakes tolerated during verification,
 after this amount of mistaken attempts, it won't be possible to
 verify the token anymore and it will be necessary to request a new one.
 
-``OPENWISP_RADIUS_SMS_TOKEN_MAX_USER_DAILY``
+``IMMUNITY
+_RADIUS_SMS_TOKEN_MAX_USER_DAILY``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``5``
 
 The max number of SMS tokens a single user can request within a day.
 
-``OPENWISP_RADIUS_SMS_TOKEN_MAX_IP_DAILY``
+``IMMUNITY
+_RADIUS_SMS_TOKEN_MAX_IP_DAILY``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``999``
@@ -1023,7 +1087,8 @@ The max number of SMS tokens a single user can request within a day.
 The max number of tokens which can be requested from the same IP address
 during the same day.
 
-``OPENWISP_RADIUS_SMS_MESSAGE_TEMPLATE``
+``IMMUNITY
+_RADIUS_SMS_MESSAGE_TEMPLATE``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Default**: ``{organization} verification code: {code}``

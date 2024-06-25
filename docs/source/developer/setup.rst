@@ -154,7 +154,8 @@ Add allowed freeradius hosts  in ``settings.py``:
 
 .. code-block:: python
 
-    OPENWISP_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1']
+    IMMUNITY
+_RADIUS_FREERADIUS_ALLOWED_HOSTS = ['127.0.0.1']
 
 .. note::
     Read more about :ref:`freeradius allowed hosts in settings page <immunity_radius_freeradius_allowed_hosts>`.

@@ -22,7 +22,8 @@ class Migration(migrations.Migration):
     """
     Initial migration for immunity-radius models
     Note (It's Manually Edited):
-    - settings._OPENWISP_DEFAULT_ORG_UUID must be set before
+    - settings._IMMUNITY
+_DEFAULT_ORG_UUID must be set before
       running; as done in 'immunity_users'->'0003_default_organization'
     - Custom logic for setting default organization in all existing
       relevent records (read comments)
@@ -154,7 +155,8 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'batch user creation operations',
                 'db_table': 'radbatch',
                 'abstract': False,
-                'swappable': 'OPENWISP_RADIUS_RADIUSBATCH_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSBATCH_MODEL',
             },
             bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
@@ -227,7 +229,8 @@ class Migration(migrations.Migration):
                 'verbose_name': 'group',
                 'verbose_name_plural': 'groups',
                 'abstract': False,
-                'swappable': 'OPENWISP_RADIUS_RADIUSGROUP_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSGROUP_MODEL',
             },
             bases=(immunity_users.mixins.ValidateOrgMixin, models.Model),
         ),
@@ -302,7 +305,8 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=settings.OPENWISP_RADIUS_RADIUSGROUP_MODEL,
+                to=settings.IMMUNITY
+_RADIUS_RADIUSGROUP_MODEL,
             ),
         ),
         migrations.AddField(
@@ -312,7 +316,8 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=settings.OPENWISP_RADIUS_RADIUSGROUP_MODEL,
+                to=settings.IMMUNITY
+_RADIUS_RADIUSGROUP_MODEL,
             ),
         ),
         migrations.AddField(
@@ -332,7 +337,8 @@ class Migration(migrations.Migration):
                 blank=True,
                 null=True,
                 on_delete=django.db.models.deletion.CASCADE,
-                to=settings.OPENWISP_RADIUS_RADIUSGROUP_MODEL,
+                to=settings.IMMUNITY
+_RADIUS_RADIUSGROUP_MODEL,
             ),
         ),
         migrations.AddField(

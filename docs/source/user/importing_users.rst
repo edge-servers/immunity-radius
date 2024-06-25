@@ -62,9 +62,12 @@ auto-generated and contents of these emails can be customized too.
 
 Here are some defined settings for doing that:
 
-    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_SUBJECT <immunity_radius_batch_mail_subject>`
-    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_MESSAGE <immunity_radius_batch_mail_message>`
-    * :ref:`OPENWISP_RADIUS_BATCH_MAIL_SENDER <immunity_radius_batch_mail_sender>`
+    * :ref:`IMMUNITY
+_RADIUS_BATCH_MAIL_SUBJECT <immunity_radius_batch_mail_subject>`
+    * :ref:`IMMUNITY
+_RADIUS_BATCH_MAIL_MESSAGE <immunity_radius_batch_mail_message>`
+    * :ref:`IMMUNITY
+_RADIUS_BATCH_MAIL_SENDER <immunity_radius_batch_mail_sender>`
 
 Using the admin interface
 -------------------------

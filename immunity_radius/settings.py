@@ -19,10 +19,12 @@ def get_settings_value(option, default):
     if hasattr(settings, f'DJANGO_FREERADIUS_{option}'):  # pragma: no cover
         logger.warning(
             f'DJANGO_FREERADIUS_{option} setting is deprecated. It will be '
-            f'removed in the future, please use OPENWISP_RADIUS_{option} instead.'
+            f'removed in the future, please use IMMUNITY
+_RADIUS_{option} instead.'
         )
         return getattr(settings, f'DJANGO_FREERADIUS_{option}')
-    return getattr(settings, f'OPENWISP_RADIUS_{option}', default)
+    return getattr(settings, f'IMMUNITY
+_RADIUS_{option}', default)
 
 
 def get_default_password_reset_url(urls):
@@ -127,21 +129,24 @@ try:  # pragma: no cover
         )
 except AssertionError as error:  # pragma: no cover
     raise ImproperlyConfigured(
-        f'OPENWISP_RADIUS_PASSWORD_RESET_URLS is invalid: {error}'
+        f'IMMUNITY
+_RADIUS_PASSWORD_RESET_URLS is invalid: {error}'
     )
 
 try:
     SMS_TOKEN_HASH_ALGORITHM = getattr(hashlib, SMS_TOKEN_HASH_ALGORITHM)
 except ImportError as error:  # pragma: no cover
     raise ImproperlyConfigured(
-        f'OPENWISP_RADIUS_SMS_TOKEN_HASH_ALGORITHM is invalid: {error}'
+        f'IMMUNITY
+_RADIUS_SMS_TOKEN_HASH_ALGORITHM is invalid: {error}'
     )
 
 try:
     assert int(SMS_TOKEN_LENGTH) <= 8 and int(SMS_TOKEN_LENGTH) >= 4
 except AssertionError:  # pragma: no cover
     raise ImproperlyConfigured(
-        'OPENWISP_RADIUS_SMS_TOKEN_LENGTH must be a number between 4 and 8: '
+        'IMMUNITY
+_RADIUS_SMS_TOKEN_LENGTH must be a number between 4 and 8: '
         'lower would not be safe and higher would not be practical from '
         'a ux perspective.'
     )
@@ -234,7 +239,8 @@ for counter_path in _counters:
 
 
 # Extend the EXPORT_USERS_COMMAND_CONFIG[fields]
-if not hasattr(settings, 'OPENWISP_USERS_EXPORT_USERS_COMMAND_CONFIG'):
+if not hasattr(settings, 'IMMUNITY
+_USERS_EXPORT_USERS_COMMAND_CONFIG'):
     from immunity_users import settings as ow_users_settings
 
     ow_users_settings.EXPORT_USERS_COMMAND_CONFIG['fields'].extend(

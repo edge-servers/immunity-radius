@@ -59,7 +59,8 @@ class Migration(migrations.Migration):
                 'verbose_name': 'Registration Information',
                 'verbose_name_plural': 'Registration Information',
                 'abstract': False,
-                'swappable': 'OPENWISP_RADIUS_REGISTEREDUSER_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_REGISTEREDUSER_MODEL',
             },
         ),
         migrations.AddField(

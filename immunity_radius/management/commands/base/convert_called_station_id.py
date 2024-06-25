@@ -91,7 +91,8 @@ class BaseConvertCalledStationIdCommand(BaseCommand):
             return {org_id: app_settings.CALLED_STATION_IDS[organization.slug]}
         except KeyError:
             logger.error(
-                'OPENWISP_RADIUS_CALLED_STATION_IDS does not contain setting '
+                'IMMUNITY
+_RADIUS_CALLED_STATION_IDS does not contain setting '
                 f'for "{radius_session.organization.name}" organization'
             )
 

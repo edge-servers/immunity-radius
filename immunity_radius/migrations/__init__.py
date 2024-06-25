@@ -22,11 +22,14 @@ def delete_old_radius_token(apps, schema_editor):
 def add_default_organization(apps, schema_editor):
     """
     Set default organization using
-    settings._OPENWISP_DEFAULT_ORG_UUID
+    settings._IMMUNITY
+_DEFAULT_ORG_UUID
     """
     models = ['nas', 'radiusaccounting', 'radiuscheck', 'radiuspostauth', 'radiusreply']
-    if hasattr(settings, '_OPENWISP_DEFAULT_ORG_UUID'):
-        default_org_id = settings._OPENWISP_DEFAULT_ORG_UUID
+    if hasattr(settings, '_IMMUNITY
+_DEFAULT_ORG_UUID'):
+        default_org_id = settings._IMMUNITY
+_DEFAULT_ORG_UUID
     else:  # pragma: no-cover (corner case)
         Organization = get_swapped_model(apps, 'immunity_users', 'Organization')
         default_org_id = Organization.objects.first().pk

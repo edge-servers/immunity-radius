@@ -165,7 +165,8 @@ class RadiusAccountingSerializer(serializers.ModelSerializer):
     def _disable_radius_token_auth(self, user):
         """
         Disables radius token auth capability unless
-        OPENWISP_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN is False
+        IMMUNITY
+_RADIUS_DISPOSABLE_RADIUS_USER_TOKEN is False
         """
         if not app_settings.DISPOSABLE_RADIUS_USER_TOKEN:
             return

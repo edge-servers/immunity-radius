@@ -14,7 +14,8 @@ def check_saml_registration_enabled(app_configs, **kwargs):
             checks.Warning(
                 msg='Improperly Configured',
                 hint=(
-                    'You have set "OPENWISP_RADIUS_SAML_REGISTRATION_ENABLED" to '
+                    'You have set "IMMUNITY
+_RADIUS_SAML_REGISTRATION_ENABLED" to '
                     '"True", but did not configure the project properly. '
                     'Kindly refer to the "Single Sign-On (SAML) Login" section '
                     'of the Immunity RADIUS documentation and configure your '
@@ -38,7 +39,8 @@ def check_social_registration_enabled(app_configs, **kwargs):
             checks.Warning(
                 msg='Improperly Configured',
                 hint=(
-                    'You have set "OPENWISP_RADIUS_SOCIAL_REGISTRATION_ENABLED" to '
+                    'You have set "IMMUNITY
+_RADIUS_SOCIAL_REGISTRATION_ENABLED" to '
                     '"True", but did not configure the project properly. '
                     'Kindly refer to the "Social Login" section of the '
                     'Immunity RADIUS documentation and configure your '

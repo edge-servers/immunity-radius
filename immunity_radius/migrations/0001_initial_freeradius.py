@@ -352,7 +352,8 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                'swappable': 'OPENWISP_RADIUS_RADIUSACCOUNTING_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSACCOUNTING_MODEL',
                 'db_table': 'radacct',
                 'verbose_name_plural': 'accountings',
                 'abstract': False,
@@ -441,7 +442,8 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                'swappable': 'OPENWISP_RADIUS_RADIUSCHECK_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSCHECK_MODEL',
                 'db_table': 'radcheck',
                 'verbose_name_plural': 'checks',
                 'abstract': False,
@@ -517,7 +519,8 @@ class Migration(migrations.Migration):
                 ('value', models.CharField(max_length=253, verbose_name='value')),
             ],
             options={
-                'swappable': 'OPENWISP_RADIUS_RADIUSGROUPCHECK_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSGROUPCHECK_MODEL',
                 'db_table': 'radgroupcheck',
                 'verbose_name_plural': 'group checks',
                 'abstract': False,
@@ -575,7 +578,8 @@ class Migration(migrations.Migration):
                 ('value', models.CharField(max_length=253, verbose_name='value')),
             ],
             options={
-                'swappable': 'OPENWISP_RADIUS_RADIUSGROUPREPLY_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSGROUPREPLY_MODEL',
                 'db_table': 'radgroupreply',
                 'verbose_name_plural': 'group replies',
                 'abstract': False,
@@ -634,7 +638,8 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                'swappable': 'OPENWISP_RADIUS_RADIUSPOSTAUTH_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSPOSTAUTH_MODEL',
                 'db_table': 'radpostauth',
                 'verbose_name_plural': 'post auth log',
                 'abstract': False,
@@ -692,7 +697,8 @@ class Migration(migrations.Migration):
                 ),
             ],
             options={
-                'swappable': 'OPENWISP_RADIUS_RADIUSREPLY_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSREPLY_MODEL',
                 'db_table': 'radreply',
                 'verbose_name_plural': 'replies',
                 'abstract': False,
@@ -745,7 +751,8 @@ class Migration(migrations.Migration):
                 ('priority', models.IntegerField(default=1, verbose_name='priority')),
             ],
             options={
-                'swappable': 'OPENWISP_RADIUS_RADIUSUSERGROUP_MODEL',
+                'swappable': 'IMMUNITY
+_RADIUS_RADIUSUSERGROUP_MODEL',
                 'db_table': 'radusergroup',
                 'verbose_name_plural': 'user groups',
                 'abstract': False,
